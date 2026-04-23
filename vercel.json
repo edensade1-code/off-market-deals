@@ -1,0 +1,23 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/victoria-park-quad", "destination": "/victoria-park-quad/index.html" },
+    { "source": "/401-ne-14th-ave", "destination": "/401-ne-14th-ave/index.html" },
+    { "source": "/1125-nw-27th-ave", "destination": "/1125-nw-27th-ave/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "victoria-park-quad.vercel.app" }],
+      "destination": "/victoria-park-quad",
+      "permanent": false
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "401-ne-14th-ave.vercel.app" }],
+      "destination": "/401-ne-14th-ave",
+      "permanent": false
+    }
+  ]
+}
