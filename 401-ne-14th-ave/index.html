@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>401-403 NE 14th Ave | Off-Market Triplex | Victoria Park, Fort Lauderdale</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0a1628;
+  --navy2:#111f38;
+  --navy3:#1a2f50;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --teal:#1a9a8a;
+  --teal2:#22bfac;
+  --white:#f8f6f1;
+  --gray:#94a3b8;
+  --border:#1e3355;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:rgba(10,22,40,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-brand{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:12px;font-weight:600;color:var(--gray);text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--gold);color:var(--navy);padding:8px 20px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.5px;transition:all .2s}
+.nav-cta:hover{background:var(--gold2)}
+
+.hero{position:relative;padding-top:72px;background:var(--navy)}
+.hero-top{max-width:1200px;margin:0 auto;padding:28px 24px 16px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);padding:5px 13px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.hero-tag i{font-size:9px}
+.hero h1{font-size:clamp(24px,4vw,50px);font-weight:800;line-height:1.1;margin-bottom:6px;letter-spacing:-1px}
+.hero h1 span{color:var(--gold)}
+.hero-loc{font-size:13px;color:var(--gray);margin-bottom:0}
+.hero-loc strong{color:var(--white)}
+
+.photo-mosaic{max-width:1200px;margin:0 auto;padding:16px 24px 0;position:relative}
+.mosaic-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:250px 250px;gap:4px;border-radius:12px;overflow:hidden}
+.mosaic-cell{overflow:hidden;cursor:pointer;position:relative;background:var(--navy2)}
+.mosaic-cell img{width:100%;height:100%;object-fit:cover;transition:transform .35s,filter .35s}
+.mosaic-cell:hover img{transform:scale(1.04);filter:brightness(.85)}
+.mosaic-cell.main{grid-row:1/3}
+.mosaic-see-all{position:absolute;bottom:14px;right:38px;background:rgba(10,22,40,.88);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;padding:7px 16px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
+.mosaic-see-all:hover{background:rgba(255,255,255,.15)}
+.mosaic-see-all i{font-size:12px;color:var(--gold)}
+
+.hero-pills-wrap{max-width:1200px;margin:0 auto;padding:14px 24px 28px;display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:7px 14px;border-radius:7px;font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px}
+.pill i{font-size:11px;color:var(--gold)}
+.pill strong{color:var(--gold2)}
+
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:999;display:none;flex-direction:column}
+.lightbox.open{display:flex}
+.lb-topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.lb-counter-txt{font-size:12px;font-weight:600;color:rgba(255,255,255,.6)}
+.lb-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:18px;cursor:pointer;padding:4px 8px;transition:color .2s;display:flex;align-items:center}
+.lb-close:hover{color:#fff}
+.lb-main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:0}
+.lb-img{max-width:calc(100vw - 120px);max-height:calc(100vh - 180px);object-fit:contain;border-radius:6px}
+.lb-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);border:none;color:#fff;width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lb-arr:hover{background:rgba(255,255,255,.2)}
+.lb-arr.l{left:14px}
+.lb-arr.r{right:14px}
+.lb-strip{display:flex;gap:5px;padding:10px 14px;overflow-x:auto;flex-shrink:0;border-top:1px solid rgba(255,255,255,.07)}
+.lb-strip::-webkit-scrollbar{height:3px}
+.lb-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:2px}
+.lb-thumb{width:70px;height:50px;object-fit:cover;border-radius:4px;cursor:pointer;opacity:.45;transition:opacity .2s;flex-shrink:0;border:2px solid transparent}
+.lb-thumb.active{opacity:1;border-color:var(--gold)}
+
+section{padding:72px 32px;max-width:1200px;margin:0 auto}
+.section-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal2);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.section-label i{font-size:10px}
+.section-title{font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-0.5px;margin-bottom:8px}
+.section-sub{font-size:14px;color:var(--gray);margin-bottom:36px;max-width:600px}
+
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:44px}
+.metric{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:border-color .2s}
+.metric:hover{border-color:var(--teal)}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.metric.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.metric.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal2))}
+.metric.blue::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.metric.purple::before{background:linear-gradient(90deg,#8b5cf6,#a78bfa)}
+.metric-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.metric-label i{font-size:10px}
+.metric-val{font-size:28px;font-weight:800;letter-spacing:-1px;line-height:1}
+.metric-val.gold{color:var(--gold)}
+.metric-val.teal{color:var(--teal2)}
+.metric-val.blue{color:#60a5fa}
+.metric-val.purple{color:#a78bfa}
+.metric-sub{font-size:11px;color:var(--gray);margin-top:5px}
+
+.income-table{background:var(--navy2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:36px}
+.income-hdr{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:12px 18px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border)}
+.income-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:14px 18px;border-bottom:1px solid rgba(30,51,85,.5);align-items:center;transition:background .15s}
+.income-row:last-child{border-bottom:none}
+.income-row:hover{background:rgba(26,154,138,.04)}
+.income-row.total{background:rgba(201,168,76,.05);border-top:1px solid rgba(201,168,76,.18)}
+.unit-badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600}
+.unit-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.rent-val{font-size:14px;font-weight:700;color:var(--white)}
+.rent-annual{font-size:11px;color:var(--gray)}
+.status-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.3px}
+.status-badge i{font-size:8px}
+.status-furnished{background:rgba(139,92,246,.12);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
+.status-vacant{background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)}
+
+.noi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px}
+.noi-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px}
+.noi-card h3{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.noi-card h3 i{color:var(--teal2)}
+.noi-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(30,51,85,.45);font-size:13px}
+.noi-row:last-child{border-bottom:none}
+.noi-row .lbl{color:var(--gray)}
+.noi-row .val{font-weight:600}
+.noi-row.total-row{margin-top:6px;padding-top:10px;border-top:1px solid var(--border);border-bottom:none}
+.noi-row.total-row .lbl{color:var(--white);font-weight:700}
+.noi-row.total-row .val{color:var(--gold);font-size:15px;font-weight:800}
+
+/* Timeline / Strategy */
+.strategy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
+.strategy-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative;overflow:hidden}
+.strategy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.strategy-card:nth-child(1)::before{background:linear-gradient(90deg,var(--teal),var(--teal2))}
+.strategy-card:nth-child(2)::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.strategy-card:nth-child(3)::before{background:linear-gradient(90deg,#8b5cf6,#a78bfa)}
+.strategy-phase{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.strategy-title{font-size:17px;font-weight:800;margin-bottom:4px}
+.strategy-sub{font-size:11px;color:var(--gray);margin-bottom:12px}
+.strategy-points{list-style:none;display:flex;flex-direction:column;gap:5px}
+.strategy-points li{font-size:12px;color:var(--white);display:flex;align-items:flex-start;gap:7px}
+.strategy-points li i{color:var(--teal2);font-size:10px;margin-top:3px;flex-shrink:0}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:36px}
+.feature{display:flex;align-items:flex-start;gap:12px;background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.feature-icon{width:32px;height:32px;background:rgba(26,154,138,.1);border:1px solid rgba(26,154,138,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feature-icon i{font-size:13px;color:var(--teal2)}
+.feature-text{font-size:13px;font-weight:500;line-height:1.4}
+.feature-text span{display:block;font-size:11px;color:var(--gray);margin-top:2px}
+
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.location-map{border-radius:12px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3}
+.location-map iframe{width:100%;height:100%;border:none}
+.location-points{display:flex;flex-direction:column;gap:10px}
+.loc-point{display:flex;align-items:flex-start;gap:12px;background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:13px}
+.loc-icon{width:30px;height:30px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.loc-icon i{font-size:12px;color:var(--gold)}
+.loc-text strong{display:block;font-size:13px;font-weight:600}
+.loc-text span{font-size:11px;color:var(--gray)}
+
+/* Terms banner */
+.terms-banner{background:linear-gradient(135deg,rgba(26,154,138,.08),rgba(201,168,76,.06));border:1px solid rgba(26,154,138,.2);border-radius:14px;padding:24px 28px;margin-bottom:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
+.term-item{text-align:center}
+.term-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
+.term-val{font-size:20px;font-weight:800;color:var(--gold)}
+.term-sub{font-size:11px;color:var(--gray);margin-top:2px}
+
+.cta-section{background:linear-gradient(135deg,var(--navy2),var(--navy3));border:1px solid var(--border);border-radius:18px;padding:52px 44px;text-align:center;max-width:1136px;margin:0 auto 72px}
+.cta-section h2{font-size:clamp(22px,3vw,38px);font-weight:800;letter-spacing:-0.5px;margin-bottom:10px}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{font-size:14px;color:var(--gray);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:13px 28px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.3px;transition:all .2s;margin:5px}
+.cta-btn:hover{background:var(--gold2);transform:translateY(-1px)}
+.cta-btn i{font-size:13px}
+.cta-btn.outline{background:transparent;color:var(--white);border:1px solid var(--border)}
+.cta-btn.outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
+
+.disclaimer{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.18);border-radius:10px;padding:14px 18px;font-size:11px;color:var(--gray);line-height:1.7;display:flex;gap:10px;align-items:flex-start}
+.disclaimer i{color:var(--gold);font-size:12px;margin-top:2px;flex-shrink:0}
+
+footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;font-size:11px;color:var(--gray)}
+
+@media(max-width:768px){
+  nav .nav-links{display:none}
+  .noi-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .strategy-grid{grid-template-columns:1fr}
+  .income-hdr,.income-row{grid-template-columns:1.5fr 1fr 1fr}
+  .income-hdr>*:nth-child(4),.income-row>*:nth-child(4){display:none}
+  .mosaic-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px}
+  .mosaic-cell.main{grid-row:auto}
+  .cta-section{padding:32px 20px;margin:0 16px 56px}
+  section{padding:52px 18px}
+  .terms-banner{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-brand">Off-Market Opportunity</div>
+  <div class="nav-links">
+    <a href="#terms">Terms</a>
+    <a href="#financials">Financials</a>
+    <a href="#property">Property</a>
+    <a href="#strategy">Strategy</a>
+    <a href="#location">Location</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get Details</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-top">
+    <div class="hero-tag"><i class="fa-solid fa-lock"></i> Off-Market &mdash; Cash / Hard Money</div>
+    <div style="font-size:clamp(16px,2.5vw,26px);font-weight:700;color:var(--teal2);letter-spacing:.5px;margin-bottom:4px">401-403 NE 14th Avenue, Fort Lauderdale, FL 33301</div>
+    <h1>Victoria Park <span>Art Deco Triplex</span></h1>
+    <div class="hero-loc"><strong>Fort Lauderdale, FL 33301</strong> &nbsp;&middot;&nbsp; Victoria Park &mdash; Prime Location</div>
+  </div>
+
+  <div class="photo-mosaic">
+    <div class="mosaic-grid">
+      <div class="mosaic-cell main" onclick="openLB(0)">
+        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/01-front-building.jpg" alt="Front Exterior" loading="eager"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(1)">
+        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-living.jpg" alt="Living Room" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(2)">
+        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-kitchen.jpg" alt="Kitchen" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(3)">
+        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/2-st-tropez-living.jpg" alt="Living Room 2" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(4)">
+        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-living.jpg" alt="Studio" loading="lazy"/>
+      </div>
+    </div>
+    <button class="mosaic-see-all" onclick="openLB(0)">
+      <i class="fa-regular fa-images"></i> See all 14 photos
+    </button>
+  </div>
+
+  <div class="hero-pills-wrap">
+    <div class="pill"><i class="fa-solid fa-tag"></i> Asking <strong>$1,090,000</strong></div>
+    <div class="pill"><i class="fa-solid fa-building"></i> <strong>3</strong> Units</div>
+    <div class="pill"><i class="fa-solid fa-ruler-combined"></i> <strong>1,940</strong> SF Living</div>
+    <div class="pill"><i class="fa-solid fa-layer-group"></i> <strong>7,000</strong> SF Lot</div>
+    <div class="pill"><i class="fa-solid fa-hammer"></i> Built <strong>1968</strong> &middot; Gut Renovated <strong>2026</strong></div>
+    <div class="pill"><i class="fa-solid fa-couch"></i> Fully <strong>Furnished</strong></div>
+    <div class="pill"><i class="fa-solid fa-money-bill-wave"></i> Cash or Hard Money</div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-topbar">
+    <div class="lb-counter-txt" id="lb-counter">1 / 14 &middot; 401-403 NE 14th Ave</div>
+    <button class="lb-close" onclick="closeLB()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="lb-main">
+    <button class="lb-arr l" onclick="lbPrev()"><i class="fa-solid fa-chevron-left"></i></button>
+    <img class="lb-img" id="lb-img" src="" alt=""/>
+    <button class="lb-arr r" onclick="lbNext()"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+  <div class="lb-strip" id="lb-strip"></div>
+</div>
+
+<!-- TERMS -->
+<section id="terms">
+  <div class="section-label"><i class="fa-solid fa-file-contract"></i> Deal Terms</div>
+  <div class="section-title">Clean Off-Market Transaction</div>
+  <div class="section-sub">No listing, no competition. Cash or hard money preferred. Fast close available.</div>
+  <div class="terms-banner">
+    <div class="term-item">
+      <div class="term-label">Asking Price</div>
+      <div class="term-val">$1,090,000</div>
+      <div class="term-sub">Off-market</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Financing</div>
+      <div class="term-val" style="font-size:16px;padding-top:4px">Cash / Hard Money</div>
+      <div class="term-sub">No conventional financing</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Price / Unit</div>
+      <div class="term-val">$363,333</div>
+      <div class="term-sub">3 fully renovated units</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Price / SF</div>
+      <div class="term-val">$562</div>
+      <div class="term-sub">1,940 SF living area</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Condition</div>
+      <div class="term-val" style="font-size:16px;padding-top:4px">Turn-Key</div>
+      <div class="term-sub">Gut renovated 2026</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Close Timeline</div>
+      <div class="term-val" style="font-size:16px;padding-top:4px">Flexible</div>
+      <div class="term-sub">Fast close preferred</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINANCIALS -->
+<section id="financials" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-chart-pie"></i> Investment Snapshot</div>
+  <div class="section-title">Fully Renovated &mdash; Rent Day One</div>
+  <div class="section-sub">Three furnished units ready to generate income immediately. Real numbers — actual 2025 taxes and insurance.</div>
+
+  <div class="metrics-grid">
+    <div class="metric gold">
+      <div class="metric-label"><i class="fa-solid fa-tag"></i> Asking Price</div>
+      <div class="metric-val gold">$1.09M</div>
+      <div class="metric-sub">Cash or hard money</div>
+    </div>
+    <div class="metric teal">
+      <div class="metric-label"><i class="fa-solid fa-money-bill-wave"></i> Gross Annual Income</div>
+      <div class="metric-val teal">$84,000</div>
+      <div class="metric-sub">3 units at market rent</div>
+    </div>
+    <div class="metric teal">
+      <div class="metric-label"><i class="fa-solid fa-circle-dollar-to-slot"></i> Net Operating Income</div>
+      <div class="metric-val teal">$53,983</div>
+      <div class="metric-sub">After taxes, insurance &amp; maintenance</div>
+    </div>
+    <div class="metric gold">
+      <div class="metric-label"><i class="fa-solid fa-percent"></i> Cap Rate</div>
+      <div class="metric-val gold">4.95%</div>
+      <div class="metric-sub">Victoria Park premium</div>
+    </div>
+    <div class="metric blue">
+      <div class="metric-label"><i class="fa-solid fa-receipt"></i> 2025 Property Taxes</div>      <div class="metric-val blue">$18,477</div>
+      <div class="metric-sub">Actual 2025 assessment</div>
+    </div>
+    <div class="metric blue">
+      <div class="metric-label"><i class="fa-solid fa-shield-halved"></i> Insurance / Year</div>
+      <div class="metric-val blue">$9,800</div>
+      <div class="metric-sub">Annual premium</div>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="fa-solid fa-list-check"></i> Rent Roll</div>
+  <div class="section-title" style="margin-bottom:22px">Projected Income by Unit</div>
+  <div class="income-table">
+    <div class="income-hdr">
+      <span>Unit</span>
+      <span>Monthly</span>
+      <span>Annual</span>
+      <span>Type</span>
+    </div>
+    <div class="income-row">
+      <div class="unit-badge"><div class="unit-dot" style="background:#22bfac"></div>Unit 401 &mdash; Santorini &mdash; 1BD/1BA</div>
+      <div><div class="rent-val">$2,800</div><div style="font-size:10px;color:var(--gray);margin-top:2px">745 SF</div></div>
+      <div class="rent-annual">$33,600 / yr</div>
+      <div><span class="status-badge status-furnished"><i class="fa-solid fa-couch"></i> Furnished</span></div>
+    </div>
+    <div class="income-row">
+      <div class="unit-badge"><div class="unit-dot" style="background:#3b82f6"></div>Unit 402 &mdash; St Tropez &mdash; 1BD/1BA</div>
+      <div><div class="rent-val">$2,800</div><div style="font-size:10px;color:var(--gray);margin-top:2px">745 SF</div></div>
+      <div class="rent-annual">$33,600 / yr</div>
+      <div><span class="status-badge status-furnished"><i class="fa-solid fa-couch"></i> Furnished</span></div>
+    </div>
+    <div class="income-row">
+      <div class="unit-badge"><div class="unit-dot" style="background:#a78bfa"></div>Unit 403 &mdash; Taormina &mdash; Studio/1BA</div>
+      <div><div class="rent-val">$1,400</div><div style="font-size:10px;color:var(--gray);margin-top:2px">450 SF</div></div>
+      <div class="rent-annual">$16,800 / yr</div>
+      <div><span class="status-badge status-furnished"><i class="fa-solid fa-couch"></i> Furnished</span></div>
+    </div>
+    <div class="income-row total">
+      <div style="font-weight:700;font-size:13px">Total (Stabilized)</div>
+      <div><div class="rent-val" style="color:var(--gold)">$7,000/mo</div></div>
+      <div style="font-weight:700;color:var(--gold)">$84,000 / yr</div>
+      <div><span class="status-badge" style="background:rgba(201,168,76,.1);color:var(--gold);border:1px solid rgba(201,168,76,.25)"><i class="fa-solid fa-star"></i> Fully Rented</span></div>
+    </div>
+  </div>
+
+  <div class="noi-grid">
+    <div class="noi-card">
+      <h3><i class="fa-solid fa-table-list"></i> Income &amp; Expenses</h3>
+      <div class="noi-row"><span class="lbl">Gross Rental Income</span><span class="val">$84,000</span></div>
+      <div class="noi-row"><span class="lbl">Property Taxes (2025 actual)</span><span class="val" style="color:#f87171">&minus; $18,477</span></div>
+      <div class="noi-row"><span class="lbl">Insurance (actual)</span><span class="val" style="color:#f87171">&minus; $9,800</span></div>
+      <div class="noi-row"><span class="lbl">Maintenance / Repairs</span><span class="val" style="color:#f87171">&minus; $1,740</span></div>
+      <div class="noi-row total-row"><span class="lbl">Net Operating Income</span><span class="val">$53,983</span></div>
+    </div>
+    <div class="noi-card">
+      <h3><i class="fa-solid fa-chart-line"></i> Returns at a Glance</h3>
+      <div class="noi-row"><span class="lbl">Asking Price</span><span class="val">$1,090,000</span></div>
+      <div class="noi-row"><span class="lbl">Cap Rate</span><span class="val" style="color:var(--teal2)">4.95%</span></div>
+      <div class="noi-row"><span class="lbl">Price / Unit</span><span class="val">$363,333</span></div>
+      <div class="noi-row"><span class="lbl">Price / SF (living)</span><span class="val">$562 / sf</span></div>
+      <div class="noi-row"><span class="lbl">Gross Rent Multiplier</span><span class="val">13.0x</span></div>
+      <div class="noi-row"><span class="lbl">Monthly NOI</span><span class="val" style="color:var(--teal2)">$4,499</span></div>
+      <div class="noi-row total-row"><span class="lbl">Annual NOI</span><span class="val">$53,983</span></div>
+    </div>
+  </div>
+  <div class="disclaimer">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <span><strong style="color:var(--gold)">Note:</strong> Expenses reflect actual 2025 taxes ($18,476.98) and real insurance premium ($9,800). No vacancy or management fee applied. Victoria Park commands a location premium — value is driven by lot size, renovation quality, and new construction upside. Rental income projections are market estimates; buyers should verify independently.</span>
+  </div>
+</section>
+
+<!-- INVESTMENT STRATEGY -->
+<section id="strategy" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-road"></i> Investment Strategy</div>
+  <div class="section-title">Buy, Hold &amp; Build</div>
+  <div class="section-sub">Victoria Park land play with immediate income. Rent furnished units while positioning for new construction exit.</div>
+
+  <div class="strategy-grid">
+    <div class="strategy-card">
+      <div class="strategy-phase">Phase 1 &mdash; Now</div>
+      <div class="strategy-title" style="color:var(--teal2)">Acquire &amp; Rent</div>
+      <div class="strategy-sub">Immediate cash flow from day one</div>
+      <ul class="strategy-points">
+        <li><i class="fa-solid fa-check"></i> 3 furnished units ready to rent</li>
+        <li><i class="fa-solid fa-check"></i> $7,000/mo gross income</li>
+        <li><i class="fa-solid fa-check"></i> Zero deferred maintenance</li>
+        <li><i class="fa-solid fa-check"></i> Private entry each unit</li>
+      </ul>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-phase">Phase 2 &mdash; Year 1-3</div>
+      <div class="strategy-title" style="color:var(--gold)">Hold &amp; Appreciate</div>
+      <div class="strategy-sub">Income covers carry while land appreciates</div>
+      <ul class="strategy-points">
+        <li><i class="fa-solid fa-check"></i> 7,000 SF lot in Victoria Park</li>
+        <li><i class="fa-solid fa-check"></i> STR upside if market supports</li>
+        <li><i class="fa-solid fa-check"></i> Rising rents in A+ submarket</li>
+        <li><i class="fa-solid fa-check"></i> Renovated = no cap-ex pressure</li>
+      </ul>
+    </div>
+    <div class="strategy-card">
+      <div class="strategy-phase">Phase 3 &mdash; Exit</div>
+      <div class="strategy-title" style="color:#a78bfa">Demolish &amp; Build</div>
+      <div class="strategy-sub">Significant appreciation upside</div>
+      <ul class="strategy-points">
+        <li><i class="fa-solid fa-check"></i> Permit new construction</li>
+        <li><i class="fa-solid fa-check"></i> New luxury build in Victoria Park</li>
+        <li><i class="fa-solid fa-check"></i> Sell or rent at new construction value</li>
+        <li><i class="fa-solid fa-check"></i> Land value play, not just yield</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY DETAILS -->
+<section id="property" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-house"></i> Property Details</div>
+  <div class="section-title">Gut Renovated in 2026 &mdash; Nothing Left to Do</div>
+  <div class="section-sub">Full interior renovation across all 3 units. Art Deco character with modern finishes throughout.</div>
+  <div class="features-grid">
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-building"></i></div><div class="feature-text">Art Deco Triplex &mdash; 3 Separate Units<span>Unit 401 &amp; 402: 1BD/1BA (745 SF each) &middot; Unit 403: Studio/1BA (450 SF)</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-couch"></i></div><div class="feature-text">Fully Furnished &mdash; Turn-Key<span>All 3 units furnished and ready to rent</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-door-open"></i></div><div class="feature-text">Private Entry &mdash; Each Unit<span>No shared hallways &mdash; fully independent</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-utensils"></i></div><div class="feature-text">Renovated Kitchens &amp; Baths<span>Modern finishes, new appliances throughout</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-leaf"></i></div><div class="feature-text">Patio &amp; Tropical Landscaping<span>Outdoor space with curb appeal</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-ruler-combined"></i></div><div class="feature-text">1,940 SF Living &middot; 7,000 SF Lot<span>Built 1968 &middot; Fully renovated 2026</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-city"></i></div><div class="feature-text">Victoria Park &mdash; Fort Lauderdale<span>One of South Florida's most desirable submarkets</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-hammer"></i></div><div class="feature-text">New Construction Play<span>7,000 SF lot &mdash; demolish &amp; build future option</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-paint-roller"></i></div><div class="feature-text">Gut Renovation &mdash; All 3 Units<span>Full interior including flooring, fixtures, walls</span></div></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-map-location-dot"></i> Location</div>
+  <div class="section-title">Victoria Park &mdash; Fort Lauderdale's Premier Address</div>
+  <div class="section-sub" style="margin-bottom:28px">Walking distance to Las Olas Blvd. Minutes from the beach. One of the most sought-after rental submarkets in all of Broward County.</div>
+  <div class="location-grid">
+    <div class="location-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.4!2d-80.1290!3d26.1310!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s401+NE+14th+Ave%2C+Fort+Lauderdale%2C+FL+33301!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="location-points">
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-champagne-glasses"></i></div><div class="loc-text"><strong>Las Olas Boulevard</strong><span>Walking distance &mdash; dining, nightlife, boutiques</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-umbrella-beach"></i></div><div class="loc-text"><strong>Fort Lauderdale Beach</strong><span>~1.5 miles east &mdash; top rental demand driver</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-plane"></i></div><div class="loc-text"><strong>FLL Airport</strong><span>~4 miles south &mdash; strong STR demand</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-hospital"></i></div><div class="loc-text"><strong>Broward Health Medical Center</strong><span>~0.5 miles &mdash; consistent tenant base</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-road"></i></div><div class="loc-text"><strong>I-95 Access</strong><span>Minutes to highway &mdash; connects all of South Florida</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="loc-text"><strong>Victoria Park Premium</strong><span>A+ submarket &mdash; lowest vacancy, highest rents in FTL</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <div class="section-label" style="justify-content:center;display:flex"><i class="fa-solid fa-lock"></i>&nbsp; Limited Opportunity</div>
+  <h2>Ready to Move <span>Fast?</span></h2>
+  <p>This is an off-market deal. No days on market, no competition. Serious investors only &mdash; reach out for financials and showing details.</p>
+
+  <div style="display:flex;align-items:center;gap:20px;justify-content:center;margin:32px 0 28px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:14px;padding:24px 32px;max-width:420px;margin-left:auto;margin-right:auto">
+    <img src="/401-ne-14th-ave/randy.jpg" alt="Randy Novar" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);flex-shrink:0"/>
+    <div style="text-align:left">
+      <div style="font-size:17px;font-weight:700;color:var(--white);line-height:1.2">Randy Novar</div>
+      <div style="font-size:12px;color:var(--gold);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Disposition Manager</div>
+      <a href="tel:+17867888273" style="display:flex;align-items:center;gap:8px;color:var(--gray);font-size:13px;text-decoration:none;margin-bottom:4px;transition:color .2s" onmouseover="this.style.color='#f8f6f1'" onmouseout="this.style.color='#94a3b8'"><i class="fa-solid fa-phone" style="color:var(--teal);width:14px"></i> (786) 788-8273</a>
+      <a href="mailto:disposition@rockethomesellers.com" style="display:flex;align-items:center;gap:8px;color:var(--gray);font-size:13px;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#f8f6f1'" onmouseout="this.style.color='#94a3b8'"><i class="fa-solid fa-envelope" style="color:var(--teal);width:14px"></i> disposition@rockethomesellers.com</a>
+    </div>
+  </div>
+
+  <a href="mailto:disposition@rockethomesellers.com" class="cta-btn"><i class="fa-solid fa-envelope"></i> Request Full Package</a>
+  <a href="tel:+17867888273" class="cta-btn outline"><i class="fa-solid fa-phone"></i> Call Now</a>
+</div>
+
+<footer>
+  <p>This offering is presented as an off-market investment opportunity. All financial projections are estimates and subject to independent verification. Taxes shown are actual 2025 assessed amounts. Rental income is projected at market rates. This is not a public listing or solicitation.</p>
+</footer>
+
+<script>
+const PHOTOS=[
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/01-front-building.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-living.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-dining.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-kitchen.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-bedroom.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-bathroom.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/2-st-tropez-living.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/2-st-tropez-kitchen.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/2-st-tropez-bathroom.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-kitchen.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-dining.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-living.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-bedroom.jpg',
+  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-bathroom.jpg',
+];
+(function(){
+  const strip=document.getElementById('lb-strip');
+  PHOTOS.forEach((url,i)=>{
+    const img=document.createElement('img');
+    img.src=url;img.className='lb-thumb';img.loading='lazy';
+    img.onclick=()=>openLB(i);
+    strip.appendChild(img);
+  });
+})();
+let lbIdx=0;
+function openLB(i){
+  lbIdx=i;
+  document.getElementById('lb-img').src=PHOTOS[i];
+  document.getElementById('lb-counter').textContent=(i+1)+' / '+PHOTOS.length+' \u00b7 401-403 NE 14th Ave';
+  document.querySelectorAll('.lb-thumb').forEach((t,j)=>t.classList.toggle('active',j===i));
+  const strip=document.getElementById('lb-strip');
+  const thumb=strip.children[i];
+  if(thumb)strip.scrollTo({left:thumb.offsetLeft-strip.clientWidth/2+36,behavior:'smooth'});
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function lbNext(){lbIdx=(lbIdx+1)%PHOTOS.length;openLB(lbIdx);}
+function lbPrev(){lbIdx=(lbIdx-1+PHOTOS.length)%PHOTOS.length;openLB(lbIdx);}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLB();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')lbNext();if(e.key==='ArrowLeft')lbPrev();});
+const lbMain=document.querySelector('.lb-main');
+let ltx=0;
+lbMain.addEventListener('touchstart',e=>{ltx=e.touches[0].clientX;},{passive:true});
+lbMain.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-ltx;if(Math.abs(dx)>40)dx<0?lbNext():lbPrev();},{passive:true});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});
+</script>
+</body>
+</html>

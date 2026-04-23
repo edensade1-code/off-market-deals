@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>1125 NW 27th Ave | Off-Market Fix &amp; Flip | Fort Lauderdale</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0a1628;
+  --navy2:#111f38;
+  --navy3:#1a2f50;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --teal:#1a9a8a;
+  --teal2:#22bfac;
+  --red:#ff6b6b;
+  --green:#4ade80;
+  --white:#f8f6f1;
+  --gray:#94a3b8;
+  --border:#1e3355;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:rgba(10,22,40,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-brand{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:12px;font-weight:600;color:var(--gray);text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--gold);color:var(--navy);padding:8px 20px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.5px;transition:all .2s}
+.nav-cta:hover{background:var(--gold2)}
+
+/* HERO */
+.hero{position:relative;padding-top:72px;background:var(--navy)}
+.hero-top{max-width:1200px;margin:0 auto;padding:28px 24px 16px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);padding:5px 13px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.hero h1{font-size:clamp(24px,4vw,50px);font-weight:800;line-height:1.1;margin-bottom:6px;letter-spacing:-1px}
+.hero h1 span{color:var(--gold)}
+.hero-loc{font-size:13px;color:var(--gray)}
+.hero-loc strong{color:var(--white)}
+
+/* PHOTO MOSAIC */
+.photo-mosaic{max-width:1200px;margin:0 auto;padding:16px 24px 0;position:relative}
+.mosaic-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:250px 250px;gap:4px;border-radius:12px;overflow:hidden}
+.mosaic-cell{overflow:hidden;cursor:pointer;position:relative;background:var(--navy2)}
+.mosaic-cell img{width:100%;height:100%;object-fit:cover;transition:transform .35s,filter .35s}
+.mosaic-cell:hover img{transform:scale(1.04);filter:brightness(.85)}
+.mosaic-cell.main{grid-row:1/3}
+.mosaic-see-all{position:absolute;bottom:14px;right:38px;background:rgba(10,22,40,.88);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;padding:7px 16px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
+.mosaic-see-all:hover{background:rgba(255,255,255,.15)}
+.mosaic-see-all i{font-size:12px;color:var(--gold)}
+
+/* PILLS */
+.hero-pills-wrap{max-width:1200px;margin:0 auto;padding:14px 24px 28px;display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:7px 14px;border-radius:7px;font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px}
+.pill i{font-size:11px;color:var(--gold)}
+.pill strong{color:var(--gold2)}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:999;display:none;flex-direction:column}
+.lightbox.open{display:flex}
+.lb-topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.lb-counter-txt{font-size:12px;font-weight:600;color:rgba(255,255,255,.6)}
+.lb-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:18px;cursor:pointer;padding:4px 8px;transition:color .2s;display:flex;align-items:center}
+.lb-close:hover{color:#fff}
+.lb-main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:0}
+.lb-img{max-width:calc(100vw - 120px);max-height:calc(100vh - 180px);object-fit:contain;border-radius:6px}
+.lb-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);border:none;color:#fff;width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lb-arr:hover{background:rgba(255,255,255,.2)}
+.lb-arr.l{left:14px}
+.lb-arr.r{right:14px}
+.lb-strip{display:flex;gap:5px;padding:10px 14px;overflow-x:auto;flex-shrink:0;border-top:1px solid rgba(255,255,255,.07)}
+.lb-strip::-webkit-scrollbar{height:3px}
+.lb-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:2px}
+.lb-thumb{width:70px;height:50px;object-fit:cover;border-radius:4px;cursor:pointer;opacity:.45;transition:opacity .2s;flex-shrink:0;border:2px solid transparent}
+.lb-thumb.active{opacity:1;border-color:var(--gold)}
+
+/* SECTIONS */
+section{padding:72px 32px;max-width:1200px;margin:0 auto}
+.section-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal2);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.section-label i{font-size:10px}
+.section-title{font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-0.5px;margin-bottom:8px}
+.section-sub{font-size:14px;color:var(--gray);margin-bottom:36px;max-width:600px}
+
+/* DEAL NUMBERS */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:44px}
+.metric{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:border-color .2s}
+.metric:hover{border-color:var(--teal)}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.metric.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.metric.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal2))}
+.metric.green::before{background:linear-gradient(90deg,#16a34a,#4ade80)}
+.metric-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.metric-label i{font-size:10px}
+.metric-val{font-size:28px;font-weight:800;letter-spacing:-1px;line-height:1}
+.metric-val.gold{color:var(--gold)}
+.metric-val.teal{color:var(--teal2)}
+.metric-val.green{color:var(--green)}
+.metric-sub{font-size:11px;color:var(--gray);margin-top:5px}
+
+/* FEATURES */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:36px}
+.feature{display:flex;align-items:flex-start;gap:12px;background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.feature-icon{width:32px;height:32px;background:rgba(26,154,138,.1);border:1px solid rgba(26,154,138,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feature-icon i{font-size:13px;color:var(--teal2)}
+.feature-icon.warn{background:rgba(255,107,107,.1);border-color:rgba(255,107,107,.2)}
+.feature-icon.warn i{color:var(--red)}
+.feature-icon.gold{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.2)}
+.feature-icon.gold i{color:var(--gold)}
+.feature-text{font-size:13px;font-weight:500;line-height:1.4}
+.feature-text span{display:block;font-size:11px;color:var(--gray);margin-top:2px}
+
+/* COMPS */
+.comps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
+.comp-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.comp-card:hover{border-color:var(--teal)}
+.comp-thumb{width:100%;height:180px;object-fit:cover;display:block}
+.comp-ph{width:100%;height:180px;background:var(--navy3);display:flex;align-items:center;justify-content:center;color:var(--gray);font-size:32px}
+.comp-body{padding:16px}
+.comp-num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--gold);color:var(--navy);border-radius:50%;font-size:10px;font-weight:800;margin-right:6px;flex-shrink:0;vertical-align:middle}
+.comp-addr{font-size:14px;font-weight:700;margin-bottom:3px;line-height:1.3}
+.comp-sub{font-size:11px;color:var(--gray);margin-bottom:12px}
+.comp-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.cstat{background:var(--navy3);border:1px solid var(--border);border-radius:7px;padding:9px 11px}
+.cstat .cl{font-size:9px;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.cstat .cv{font-size:13px;font-weight:700}
+.cstat .cv.price{color:var(--teal2)}
+.cstat .cv.psf{color:var(--gold)}
+
+/* LOCATION */
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.location-map{border-radius:12px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3}
+.location-map iframe{width:100%;height:100%;border:none}
+.location-points{display:flex;flex-direction:column;gap:10px}
+.loc-point{display:flex;align-items:flex-start;gap:12px;background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:13px}
+.loc-icon{width:30px;height:30px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.loc-icon i{font-size:12px;color:var(--gold)}
+.loc-text strong{display:block;font-size:13px;font-weight:600}
+.loc-text span{font-size:11px;color:var(--gray)}
+
+/* CTA */
+.cta-section{background:linear-gradient(135deg,var(--navy2),var(--navy3));border:1px solid var(--border);border-radius:18px;padding:52px 44px;text-align:center;max-width:1136px;margin:0 auto 72px}
+.cta-section h2{font-size:clamp(22px,3vw,38px);font-weight:800;letter-spacing:-0.5px;margin-bottom:10px}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{font-size:14px;color:var(--gray);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:13px 28px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.3px;transition:all .2s;margin:5px}
+.cta-btn:hover{background:var(--gold2);transform:translateY(-1px)}
+.cta-btn.outline{background:transparent;color:var(--white);border:1px solid var(--border)}
+.cta-btn.outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
+
+footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;font-size:11px;color:var(--gray)}
+
+@media(max-width:768px){
+  nav .nav-links{display:none}
+  .comps-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .mosaic-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px}
+  .mosaic-cell.main{grid-row:auto}
+  .cta-section{padding:32px 20px;margin:0 16px 56px}
+  section{padding:52px 18px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-brand">Off-Market Investment</div>
+  <div class="nav-links">
+    <a href="#financials">Deal Numbers</a>
+    <a href="#property">Property</a>
+    <a href="#comps">Comps</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get Details</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="hero-tag"><i class="fa-solid fa-hammer"></i> Fix &amp; Flip Opportunity</div>
+    <div style="font-size:clamp(16px,2.5vw,26px);font-weight:700;color:var(--teal2);letter-spacing:.5px;margin-bottom:4px">1125 NW 27th Avenue, Fort Lauderdale, FL 33311</div>
+    <h1>Washington Park <span>Fix &amp; Flip</span></h1>
+    <div class="hero-loc"><strong>Fort Lauderdale, FL 33311</strong> &nbsp;&middot;&nbsp; Washington Park / NW Broward</div>
+  </div>
+
+  <div class="photo-mosaic">
+    <div class="mosaic-grid">
+      <div class="mosaic-cell main" onclick="openLB(0)">
+        <img src="https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m3764785528s-w2048_h1536.jpg" alt="Front" loading="eager"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(1)">
+        <img src="https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m698524905s-w2048_h1536.jpg" alt="" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(2)">
+        <img src="https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m2278657629s-w2048_h1536.jpg" alt="" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(3)">
+        <img src="https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m812943222s-w2048_h1536.jpg" alt="" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(4)">
+        <img src="https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m812291125s-w2048_h1536.jpg" alt="" loading="lazy"/>
+      </div>
+    </div>
+    <button class="mosaic-see-all" onclick="openLB(0)">
+      <i class="fa-regular fa-images"></i> See all 24 photos
+    </button>
+  </div>
+
+  <div class="hero-pills-wrap">
+    <div class="pill"><i class="fa-solid fa-tag"></i> Asking <strong>$339,000</strong></div>
+    <div class="pill"><i class="fa-solid fa-bed"></i> <strong>5</strong> Beds / <strong>2.5</strong> Baths</div>
+    <div class="pill"><i class="fa-solid fa-ruler-combined"></i> <strong>1,410</strong> SF Living</div>
+    <div class="pill"><i class="fa-solid fa-calendar"></i> Built <strong>1978</strong></div>
+    <div class="pill"><i class="fa-solid fa-building"></i> Concrete Block</div>
+    <div class="pill"><i class="fa-solid fa-chart-line"></i> ARV <strong>$499,000</strong></div>
+    <div class="pill"><i class="fa-solid fa-arrow-trend-up"></i> Spread <strong>$160,000</strong></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-topbar">
+    <div class="lb-counter-txt" id="lb-counter">1 / 24 &middot; 1125 NW 27th Ave</div>
+    <button class="lb-close" onclick="closeLB()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="lb-main">
+    <button class="lb-arr l" onclick="lbPrev()"><i class="fa-solid fa-chevron-left"></i></button>
+    <img class="lb-img" id="lb-img" src="" alt=""/>
+    <button class="lb-arr r" onclick="lbNext()"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+  <div class="lb-strip" id="lb-strip"></div>
+</div>
+
+<!-- DEAL NUMBERS -->
+<section id="financials">
+  <div class="section-label"><i class="fa-solid fa-calculator"></i> Investment Snapshot</div>
+  <div class="section-title">Strong Spread in a Rising Market</div>
+  <div class="section-sub">Off-market acquisition at a deep discount with clear upside supported by recent closed comps.</div>
+
+  <div class="metrics-grid">
+    <div class="metric gold">
+      <div class="metric-label"><i class="fa-solid fa-tag"></i> Asking Price</div>
+      <div class="metric-val gold">$339K</div>
+      <div class="metric-sub">Off-market pricing</div>
+    </div>
+    <div class="metric teal">
+      <div class="metric-label"><i class="fa-solid fa-chart-line"></i> After Repair Value</div>
+      <div class="metric-val teal">$499K</div>
+      <div class="metric-sub">3 recent closed comps</div>
+    </div>
+    <div class="metric green">
+      <div class="metric-label"><i class="fa-solid fa-arrow-trend-up"></i> Gross Spread</div>
+      <div class="metric-val green">$160K</div>
+      <div class="metric-sub">Before renovation costs</div>
+    </div>
+    <div class="metric gold">
+      <div class="metric-label"><i class="fa-solid fa-hammer"></i> Renovation Estimate</div>
+      <div class="metric-val gold" style="font-size:22px">$65K-$75K</div>
+      <div class="metric-sub">Full scope (see below)</div>
+    </div>
+    <div class="metric green">
+      <div class="metric-label"><i class="fa-solid fa-circle-dollar-to-slot"></i> Net Profit (est.)</div>
+      <div class="metric-val green" style="font-size:22px">~$85K-$95K</div>
+      <div class="metric-sub">Before holding costs</div>
+    </div>
+    <div class="metric teal">
+      <div class="metric-label"><i class="fa-solid fa-ruler-combined"></i> ARV Per SF</div>
+      <div class="metric-val teal" style="font-size:22px">$354</div>
+      <div class="metric-sub">1,410 SF living area</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY -->
+<section id="property" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-house"></i> Property Overview</div>
+  <div class="section-title">Washington Park Single Family</div>
+  <div class="section-sub">Concrete block construction with big backyard, circular driveway, and prior rental history at $2,500/mo.</div>
+  <div class="features-grid">
+    <div class="feature">
+      <div class="feature-icon"><i class="fa-solid fa-building"></i></div>
+      <div class="feature-text">Concrete Block Construction<span>Solid structure, low maintenance exterior</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon gold"><i class="fa-solid fa-money-bill-wave"></i></div>
+      <div class="feature-text">Prior Rent $2,500/mo<span>Established rental demand in the area</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><i class="fa-solid fa-tree"></i></div>
+      <div class="feature-text">Big Backyard, Fenced Yard<span>Excellent outdoor space - adds buyer appeal</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><i class="fa-solid fa-car"></i></div>
+      <div class="feature-text">Circular Concrete Driveway<span>Front porch with strong curb appeal bones</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="feature-text">Dillard Schools - Walking Distance<span>Elementary, Middle &amp; High School nearby</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><i class="fa-solid fa-road"></i></div>
+      <div class="feature-text">2 Minutes to I-95<span>Central Broward access - strong location</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon warn"><i class="fa-solid fa-house-chimney"></i></div>
+      <div class="feature-text">New Roof Required<span>Full replacement needed - priced accordingly</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon warn"><i class="fa-solid fa-wind"></i></div>
+      <div class="feature-text">New AC &amp; Ductwork<span>Full HVAC replacement included in budget</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon warn"><i class="fa-solid fa-kitchen-set"></i></div>
+      <div class="feature-text">Kitchen Renovation<span>New tile, cabinets &amp; finishes</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon warn"><i class="fa-solid fa-paint-roller"></i></div>
+      <div class="feature-text">Interior Paint<span>Full interior repaint throughout</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon warn"><i class="fa-solid fa-leaf"></i></div>
+      <div class="feature-text">Landscaping<span>Curb appeal cleanup and yard work</span></div>
+    </div>
+    <div class="feature">
+      <div class="feature-icon gold"><i class="fa-solid fa-dollar-sign"></i></div>
+      <div class="feature-text">Total Reno Budget: $65K-$75K<span>Full scope - all items above included</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPS -->
+<section id="comps" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-house-circle-check"></i> Comparable Sales</div>
+  <div class="section-title">ARV Supported by 3 Recent Closings</div>
+  <div class="section-sub">All within 0.9 miles, closed within the last 6 months.</div>
+
+  <div class="comps-grid">
+    <div class="comp-card">
+      <img class="comp-thumb" src="https://dvvjkgh94f2v6.cloudfront.net/523fa3e6/425381977/83dcefb7.jpeg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="comp-ph" style="display:none"><i class="fa-solid fa-house"></i></div>
+      <div class="comp-body">
+        <div class="comp-addr"><span class="comp-num">1</span>1640 NW 27th Ave</div>
+        <div class="comp-sub">Fort Lauderdale, FL 33311 &nbsp;&middot;&nbsp; 0.5 mi away</div>
+        <div class="comp-stats">
+          <div class="cstat"><div class="cl">Sale Price</div><div class="cv price">$500,000</div></div>
+          <div class="cstat"><div class="cl">Price / SF</div><div class="cv psf">$391</div></div>
+          <div class="cstat"><div class="cl">Living Area</div><div class="cv">1,280 SF</div></div>
+          <div class="cstat"><div class="cl">Sold</div><div class="cv">Mar 2026</div></div>
+          <div class="cstat"><div class="cl">Beds / Baths</div><div class="cv">4 / 3</div></div>
+          <div class="cstat"><div class="cl">Year Built</div><div class="cv">1963</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <img class="comp-thumb" src="https://dvvjkgh94f2v6.cloudfront.net/523fa3e6/424134805/83dcefb7.jpeg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="comp-ph" style="display:none"><i class="fa-solid fa-house"></i></div>
+      <div class="comp-body">
+        <div class="comp-addr"><span class="comp-num">2</span>2770 NW 25th St</div>
+        <div class="comp-sub">Fort Lauderdale, FL 33311 &nbsp;&middot;&nbsp; 0.9 mi away</div>
+        <div class="comp-stats">
+          <div class="cstat"><div class="cl">Sale Price</div><div class="cv price">$470,000</div></div>
+          <div class="cstat"><div class="cl">Price / SF</div><div class="cv psf">$349</div></div>
+          <div class="cstat"><div class="cl">Living Area</div><div class="cv">1,348 SF</div></div>
+          <div class="cstat"><div class="cl">Sold</div><div class="cv">Dec 2025</div></div>
+          <div class="cstat"><div class="cl">Beds / Baths</div><div class="cv">3 / 2</div></div>
+          <div class="cstat"><div class="cl">Year Built</div><div class="cv">1960</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="comp-card">
+      <img class="comp-thumb" src="https://dvvjkgh94f2v6.cloudfront.net/523fa3e6/419236217/83dcefb7.jpeg" alt="" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="comp-ph" style="display:none"><i class="fa-solid fa-house"></i></div>
+      <div class="comp-body">
+        <div class="comp-addr"><span class="comp-num">3</span>2051 NW 28th Ter</div>
+        <div class="comp-sub">Fort Lauderdale, FL 33311 &nbsp;&middot;&nbsp; 0.7 mi away</div>
+        <div class="comp-stats">
+          <div class="cstat"><div class="cl">Sale Price</div><div class="cv price">$460,000</div></div>
+          <div class="cstat"><div class="cl">Price / SF</div><div class="cv psf">$327</div></div>
+          <div class="cstat"><div class="cl">Living Area</div><div class="cv">1,408 SF</div></div>
+          <div class="cstat"><div class="cl">Sold</div><div class="cv">Oct 2025</div></div>
+          <div class="cstat"><div class="cl">Beds / Baths</div><div class="cv">4 / 2</div></div>
+          <div class="cstat"><div class="cl">Year Built</div><div class="cv">1970</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-map-location-dot"></i> Location</div>
+  <div class="section-title">Washington Park - Central Broward</div>
+  <div class="section-sub" style="margin-bottom:28px">Strong rental demand area with easy highway access and quality school zoning.</div>
+  <div class="location-grid">
+    <div class="location-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.0!2d-80.2048!3d26.1354!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9001f0bfef9f1%3A0xa0!2s1125+NW+27th+Ave%2C+Fort+Lauderdale%2C+FL+33311!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="location-points">
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-road"></i></div><div class="loc-text"><strong>I-95 - 2 Minutes</strong><span>Direct highway access to all of South Florida</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-graduation-cap"></i></div><div class="loc-text"><strong>Dillard Schools - Walking Distance</strong><span>Elementary, Middle &amp; High School</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-store"></i></div><div class="loc-text"><strong>Swap Shop / Broward Mall</strong><span>Major retail and commerce nearby</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="loc-text"><strong>Rising Sales Prices</strong><span>Comp values up year-over-year in this zip</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-house-user"></i></div><div class="loc-text"><strong>Strong Rental Demand</strong><span>Prior tenant at $2,500/mo - easy to re-rent</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <div class="section-label" style="justify-content:center;display:flex"><i class="fa-solid fa-lock"></i>&nbsp; Limited Opportunity</div>
+  <h2>Ready to Move <span>Fast?</span></h2>
+  <p>Off-market deal - not listed on MLS. Serious investors only. Reach out for the full package, financials, and walkthrough details.</p>
+
+  <div style="display:flex;align-items:center;gap:20px;justify-content:center;margin:32px 0 28px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:14px;padding:24px 32px;max-width:420px;margin-left:auto;margin-right:auto">
+    <img src="/victoria-park-quad/randy.jpg" alt="Randy Novar" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);flex-shrink:0"/>
+    <div style="text-align:left">
+      <div style="font-size:17px;font-weight:700;color:var(--white);line-height:1.2">Randy Novar</div>
+      <div style="font-size:12px;color:var(--gold);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Disposition Manager</div>
+      <a href="tel:+17867888273" style="display:flex;align-items:center;gap:8px;color:var(--gray);font-size:13px;text-decoration:none;margin-bottom:4px;transition:color .2s" onmouseover="this.style.color='#f8f6f1'" onmouseout="this.style.color='#94a3b8'"><i class="fa-solid fa-phone" style="color:var(--teal2);width:14px"></i> (786) 788-8273</a>
+      <a href="mailto:disposition@rockethomesellers.com" style="display:flex;align-items:center;gap:8px;color:var(--gray);font-size:13px;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#f8f6f1'" onmouseout="this.style.color='#94a3b8'"><i class="fa-solid fa-envelope" style="color:var(--teal2);width:14px"></i> disposition@rockethomesellers.com</a>
+    </div>
+  </div>
+
+  <a href="mailto:disposition@rockethomesellers.com" class="cta-btn"><i class="fa-solid fa-envelope"></i> Request Full Package</a>
+  <a href="tel:+17867888273" class="cta-btn outline"><i class="fa-solid fa-phone"></i> Call Now</a>
+</div>
+
+<footer>
+  <p>This offering is presented as an off-market investment opportunity. All financial projections are estimates and subject to verification. Buyers are encouraged to conduct independent due diligence. This is not a public listing.</p>
+</footer>
+
+<script>
+const PHOTOS=[
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m3764785528s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m698524905s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m2278657629s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m812943222s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m812291125s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m517193628s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m481232218s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m3648273396s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m1283864233s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m654944034s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m3073078236s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m841328606s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m2730952306s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m622977998s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m4250712027s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m1949442858s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m2916751483s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m2601941795s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m250481813s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m4095935347s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m1639897455s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m3190848152s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m3300383323s-w2048_h1536.jpg',
+  'https://ap.rdcpix.com/2e8490c338c5c3544c58d8bf6398aa47l-m217382834s-w2048_h1536.jpg',
+];
+(function(){
+  const strip=document.getElementById('lb-strip');
+  PHOTOS.forEach((url,i)=>{
+    const img=document.createElement('img');
+    img.src=url;img.className='lb-thumb';img.loading='lazy';
+    img.onclick=()=>openLB(i);
+    strip.appendChild(img);
+  });
+})();
+let lbIdx=0;
+function openLB(i){
+  lbIdx=i;
+  document.getElementById('lb-img').src=PHOTOS[i];
+  document.getElementById('lb-counter').textContent=(i+1)+' / '+PHOTOS.length+' \u00b7 1125 NW 27th Ave';
+  document.querySelectorAll('.lb-thumb').forEach((t,j)=>t.classList.toggle('active',j===i));
+  const strip=document.getElementById('lb-strip');
+  const thumb=strip.children[i];
+  if(thumb)strip.scrollTo({left:thumb.offsetLeft-strip.clientWidth/2+36,behavior:'smooth'});
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function lbNext(){lbIdx=(lbIdx+1)%PHOTOS.length;openLB(lbIdx);}
+function lbPrev(){lbIdx=(lbIdx-1+PHOTOS.length)%PHOTOS.length;openLB(lbIdx);}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLB();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')lbNext();if(e.key==='ArrowLeft')lbPrev();});
+const lbMain=document.querySelector('.lb-main');
+let ltx=0;
+lbMain.addEventListener('touchstart',e=>{ltx=e.touches[0].clientX;},{passive:true});
+lbMain.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-ltx;if(Math.abs(dx)>40)dx<0?lbNext():lbPrev();},{passive:true});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});
+</script>
+</body>
+</html>

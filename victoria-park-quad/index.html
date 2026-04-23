@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Victoria Park | Off-Market Quadruplex | Fort Lauderdale</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --navy:#0a1628;
+  --navy2:#111f38;
+  --navy3:#1a2f50;
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --teal:#1a9a8a;
+  --teal2:#22bfac;
+  --white:#f8f6f1;
+  --gray:#94a3b8;
+  --border:#1e3355;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--white);line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;transition:all .3s}
+nav.scrolled{background:rgba(10,22,40,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-brand{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:12px;font-weight:600;color:var(--gray);text-decoration:none;letter-spacing:.5px;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-cta{background:var(--gold);color:var(--navy);padding:8px 20px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.5px;transition:all .2s}
+.nav-cta:hover{background:var(--gold2)}
+
+/* ── HERO ── */
+.hero{position:relative;padding-top:72px;background:var(--navy)}
+.hero-top{max-width:1200px;margin:0 auto;padding:28px 24px 16px}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.12);border:1px solid var(--gold);color:var(--gold);padding:5px 13px;border-radius:20px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.hero-tag i{font-size:9px}
+.hero h1{font-size:clamp(24px,4vw,50px);font-weight:800;line-height:1.1;margin-bottom:6px;letter-spacing:-1px}
+.hero h1 span{color:var(--gold)}
+.hero-loc{font-size:13px;color:var(--gray);margin-bottom:0}
+.hero-loc strong{color:var(--white)}
+
+/* ── PHOTO MOSAIC ── */
+.photo-mosaic{max-width:1200px;margin:0 auto;padding:16px 24px 0;position:relative}
+.mosaic-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:250px 250px;gap:4px;border-radius:12px;overflow:hidden}
+.mosaic-cell{overflow:hidden;cursor:pointer;position:relative;background:var(--navy2)}
+.mosaic-cell img{width:100%;height:100%;object-fit:cover;transition:transform .35s,filter .35s}
+.mosaic-cell:hover img{transform:scale(1.04);filter:brightness(.85)}
+.mosaic-cell.main{grid-row:1/3}
+.mosaic-see-all{position:absolute;bottom:14px;right:38px;background:rgba(10,22,40,.88);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;padding:7px 16px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
+.mosaic-see-all:hover{background:rgba(255,255,255,.15)}
+.mosaic-see-all i{font-size:12px;color:var(--gold)}
+
+/* ── PILLS ── */
+.hero-pills-wrap{max-width:1200px;margin:0 auto;padding:14px 24px 28px;display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:7px 14px;border-radius:7px;font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px}
+.pill i{font-size:11px;color:var(--gold)}
+.pill strong{color:var(--gold2)}
+
+/* ── LIGHTBOX ── */
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.97);z-index:999;display:none;flex-direction:column}
+.lightbox.open{display:flex}
+.lb-topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-bottom:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.lb-counter-txt{font-size:12px;font-weight:600;color:rgba(255,255,255,.6)}
+.lb-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:18px;cursor:pointer;padding:4px 8px;transition:color .2s;display:flex;align-items:center}
+.lb-close:hover{color:#fff}
+.lb-main{flex:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;min-height:0}
+.lb-img{max-width:calc(100vw - 120px);max-height:calc(100vh - 180px);object-fit:contain;border-radius:6px}
+.lb-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.08);border:none;color:#fff;width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lb-arr:hover{background:rgba(255,255,255,.2)}
+.lb-arr.l{left:14px}
+.lb-arr.r{right:14px}
+.lb-strip{display:flex;gap:5px;padding:10px 14px;overflow-x:auto;flex-shrink:0;border-top:1px solid rgba(255,255,255,.07)}
+.lb-strip::-webkit-scrollbar{height:3px}
+.lb-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.15);border-radius:2px}
+.lb-thumb{width:70px;height:50px;object-fit:cover;border-radius:4px;cursor:pointer;opacity:.45;transition:opacity .2s;flex-shrink:0;border:2px solid transparent}
+.lb-thumb.active{opacity:1;border-color:var(--gold)}
+
+/* ── SECTIONS ── */
+section{padding:72px 32px;max-width:1200px;margin:0 auto}
+.section-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal2);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.section-label i{font-size:10px}
+.section-title{font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-0.5px;margin-bottom:8px}
+.section-sub{font-size:14px;color:var(--gray);margin-bottom:36px;max-width:600px}
+
+/* ── METRICS ── */
+.metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:44px}
+.metric{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:border-color .2s}
+.metric:hover{border-color:var(--teal)}
+.metric::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.metric.gold::before{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.metric.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal2))}
+.metric.blue::before{background:linear-gradient(90deg,#3b82f6,#60a5fa)}
+.metric-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.metric-label i{font-size:10px}
+.metric-val{font-size:28px;font-weight:800;letter-spacing:-1px;line-height:1}
+.metric-val.gold{color:var(--gold)}
+.metric-val.teal{color:var(--teal2)}
+.metric-val.blue{color:#60a5fa}
+.metric-sub{font-size:11px;color:var(--gray);margin-top:5px}
+
+/* ── INCOME TABLE ── */
+.income-table{background:var(--navy2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:36px}
+.income-hdr{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:12px 18px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border)}
+.income-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:14px 18px;border-bottom:1px solid rgba(30,51,85,.5);align-items:center;transition:background .15s}
+.income-row:last-child{border-bottom:none}
+.income-row:hover{background:rgba(26,154,138,.04)}
+.income-row.total{background:rgba(201,168,76,.05);border-top:1px solid rgba(201,168,76,.18)}
+.unit-badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600}
+.unit-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.rent-val{font-size:14px;font-weight:700;color:var(--white)}
+.rent-annual{font-size:11px;color:var(--gray)}
+.status-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.3px}
+.status-badge i{font-size:8px}
+.status-rented{background:rgba(26,154,138,.12);color:var(--teal2);border:1px solid rgba(26,154,138,.25)}
+.status-owner{background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)}
+
+/* ── NOI CARDS ── */
+.noi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px}
+.noi-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px}
+.noi-card h3{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.noi-card h3 i{color:var(--teal2)}
+.noi-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(30,51,85,.45);font-size:13px}
+.noi-row:last-child{border-bottom:none}
+.noi-row .lbl{color:var(--gray)}
+.noi-row .val{font-weight:600}
+.noi-row.total-row{margin-top:6px;padding-top:10px;border-top:1px solid var(--border);border-bottom:none}
+.noi-row.total-row .lbl{color:var(--white);font-weight:700}
+.noi-row.total-row .val{color:var(--gold);font-size:15px;font-weight:800}
+
+/* ── FEATURES ── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px;margin-bottom:36px}
+.feature{display:flex;align-items:flex-start;gap:12px;background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:14px}
+.feature-icon{width:32px;height:32px;background:rgba(26,154,138,.1);border:1px solid rgba(26,154,138,.2);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feature-icon i{font-size:13px;color:var(--teal2)}
+.feature-text{font-size:13px;font-weight:500;line-height:1.4}
+.feature-text span{display:block;font-size:11px;color:var(--gray);margin-top:2px}
+
+/* ── LOCATION ── */
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.location-map{border-radius:12px;overflow:hidden;border:1px solid var(--border);aspect-ratio:4/3}
+.location-map iframe{width:100%;height:100%;border:none}
+.location-points{display:flex;flex-direction:column;gap:10px}
+.loc-point{display:flex;align-items:flex-start;gap:12px;background:var(--navy2);border:1px solid var(--border);border-radius:10px;padding:13px}
+.loc-icon{width:30px;height:30px;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.18);border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.loc-icon i{font-size:12px;color:var(--gold)}
+.loc-text strong{display:block;font-size:13px;font-weight:600}
+.loc-text span{font-size:11px;color:var(--gray)}
+
+/* ── CTA ── */
+.cta-section{background:linear-gradient(135deg,var(--navy2),var(--navy3));border:1px solid var(--border);border-radius:18px;padding:52px 44px;text-align:center;max-width:1136px;margin:0 auto 72px}
+.cta-section h2{font-size:clamp(22px,3vw,38px);font-weight:800;letter-spacing:-0.5px;margin-bottom:10px}
+.cta-section h2 span{color:var(--gold)}
+.cta-section p{font-size:14px;color:var(--gray);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--navy);padding:13px 28px;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.3px;transition:all .2s;margin:5px}
+.cta-btn:hover{background:var(--gold2);transform:translateY(-1px)}
+.cta-btn i{font-size:13px}
+.cta-btn.outline{background:transparent;color:var(--white);border:1px solid var(--border)}
+.cta-btn.outline:hover{border-color:var(--white);background:rgba(255,255,255,.05)}
+
+/* ── DISCLAIMER ── */
+.disclaimer{background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.18);border-radius:10px;padding:14px 18px;font-size:11px;color:var(--gray);line-height:1.7;display:flex;gap:10px;align-items:flex-start}
+.disclaimer i{color:var(--gold);font-size:12px;margin-top:2px;flex-shrink:0}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;font-size:11px;color:var(--gray)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  nav .nav-links{display:none}
+  .noi-grid{grid-template-columns:1fr}
+  .location-grid{grid-template-columns:1fr}
+  .income-hdr,.income-row{grid-template-columns:1.5fr 1fr 1fr}
+  .income-hdr>*:nth-child(4),.income-row>*:nth-child(4){display:none}
+  .mosaic-grid{grid-template-columns:1fr 1fr;grid-template-rows:180px 180px}
+  .mosaic-cell.main{grid-row:auto}
+  .cta-section{padding:32px 20px;margin:0 16px 56px}
+  section{padding:52px 18px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-brand">Off-Market Investment</div>
+  <div class="nav-links">
+    <a href="#financials">Financials</a>
+    <a href="#property">Property</a>
+    <a href="#location">Location</a>
+  </div>
+  <a href="#contact" class="nav-cta">Get Details</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-top">
+    <div class="hero-tag"><i class="fa-solid fa-lock"></i> Off-Market Opportunity</div>
+    <div style="font-size:clamp(16px,2.5vw,26px);font-weight:700;color:var(--teal2);letter-spacing:.5px;margin-bottom:4px">1516 NE 6th Street, Fort Lauderdale, FL 33304</div>
+    <h1>Victoria Park <span>Quadruplex</span></h1>
+    <div class="hero-loc"><strong>Fort Lauderdale, FL 33304</strong> &nbsp;&middot;&nbsp; Victoria Park / Las Olas Corridor</div>
+  </div>
+
+  <!-- PHOTO MOSAIC -->
+  <div class="photo-mosaic">
+    <div class="mosaic-grid">
+      <div class="mosaic-cell main" onclick="openLB(0)">
+        <img src="https://cdn.photos.sparkplatform.com/flr/20241023091950917521000000-o.jpg" alt="Exterior" loading="eager"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(1)">
+        <img src="https://cdn.photos.sparkplatform.com/flr/20241023091950980538000000-o.jpg" alt="" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(2)">
+        <img src="https://cdn.photos.sparkplatform.com/flr/20241023091951167654000000-o.jpg" alt="" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(3)">
+        <img src="https://cdn.photos.sparkplatform.com/flr/20241023091951350491000000-o.jpg" alt="" loading="lazy"/>
+      </div>
+      <div class="mosaic-cell" onclick="openLB(4)">
+        <img src="https://cdn.photos.sparkplatform.com/flr/20241023091951541180000000-o.jpg" alt="" loading="lazy"/>
+      </div>
+    </div>
+    <button class="mosaic-see-all" onclick="openLB(0)">
+      <i class="fa-regular fa-images"></i> See all 32 photos
+    </button>
+  </div>
+
+  <div class="hero-pills-wrap">
+    <div class="pill"><i class="fa-solid fa-tag"></i> Asking <strong>$1,225,000</strong></div>
+    <div class="pill"><i class="fa-solid fa-building"></i> <strong>4</strong> Units</div>
+    <div class="pill"><i class="fa-solid fa-ruler-combined"></i> <strong>2,711</strong> SF</div>
+    <div class="pill"><i class="fa-solid fa-hammer"></i> Built <strong>1965</strong> &middot; Renovated</div>
+    <div class="pill"><i class="fa-solid fa-percent"></i> Cap Rate <strong>~6.23%</strong></div>
+    <div class="pill"><i class="fa-solid fa-chart-line"></i> NOI <strong>$88K/yr</strong></div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-topbar">
+    <div class="lb-counter-txt" id="lb-counter">1 / 32 &middot; Victoria Park Quadruplex</div>
+    <button class="lb-close" onclick="closeLB()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="lb-main">
+    <button class="lb-arr l" onclick="lbPrev()"><i class="fa-solid fa-chevron-left"></i></button>
+    <img class="lb-img" id="lb-img" src="" alt=""/>
+    <button class="lb-arr r" onclick="lbNext()"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+  <div class="lb-strip" id="lb-strip"></div>
+</div>
+
+<!-- FINANCIALS -->
+<section id="financials">
+  <div class="section-label"><i class="fa-solid fa-chart-pie"></i> Investment Snapshot</div>
+  <div class="section-title">Strong Returns in a Premium Market</div>
+  <div class="section-sub">Fully renovated, fully occupied — immediate cash flow from day one.</div>
+
+  <div class="metrics-grid">
+    <div class="metric gold">
+      <div class="metric-label"><i class="fa-solid fa-tag"></i> Asking Price</div>
+      <div class="metric-val gold">$1.29M</div>
+      <div class="metric-sub">Off-market pricing</div>
+    </div>
+    <div class="metric teal">
+      <div class="metric-label"><i class="fa-solid fa-money-bill-wave"></i> Gross Annual Income</div>
+      <div class="metric-val teal">$127,200</div>
+      <div class="metric-sub">All 4 units occupied</div>
+    </div>
+    <div class="metric teal">
+      <div class="metric-label"><i class="fa-solid fa-circle-dollar-to-slot"></i> Net Operating Income</div>
+      <div class="metric-val teal">$80,332</div>
+      <div class="metric-sub">After expenses</div>
+    </div>
+    <div class="metric gold">
+      <div class="metric-label"><i class="fa-solid fa-percent"></i> Cap Rate</div>
+      <div class="metric-val gold">6.23%</div>
+      <div class="metric-sub">Victoria Park premium</div>
+    </div>
+    <div class="metric blue">
+      <div class="metric-label"><i class="fa-solid fa-building"></i> Price Per Unit</div>
+      <div class="metric-val blue">$306,250</div>
+      <div class="metric-sub">Below replacement cost</div>
+    </div>
+    <div class="metric blue">
+      <div class="metric-label"><i class="fa-solid fa-arrows-rotate"></i> Gross Rent Multiplier</div>
+      <div class="metric-val blue">9.6x</div>
+      <div class="metric-sub">Attractive entry point</div>
+    </div>
+  </div>
+
+  <div class="section-label"><i class="fa-solid fa-list-check"></i> Rent Roll</div>
+  <div class="section-title" style="margin-bottom:22px">Current Income by Unit</div>
+  <div class="income-table">
+    <div class="income-hdr">
+      <span>Unit</span>
+      <span>Monthly</span>
+      <span>Annual</span>
+      <span>Status</span>
+    </div>
+    <div class="income-row">
+      <div class="unit-badge"><div class="unit-dot" style="background:#3b82f6"></div>Unit 1 &mdash; 1 Bed / 1 Bath</div>
+      <div><div class="rent-val">$2,400</div></div>
+      <div class="rent-annual">$28,800 / yr</div>
+      <div><span class="status-badge status-rented"><i class="fa-solid fa-circle-check"></i> Rented</span></div>
+    </div>
+    <div class="income-row">
+      <div class="unit-badge"><div class="unit-dot" style="background:#3b82f6"></div>Unit 2 &mdash; 1 Bed / 1 Bath</div>
+      <div><div class="rent-val">$2,400</div></div>
+      <div class="rent-annual">$28,800 / yr</div>
+      <div><span class="status-badge status-rented"><i class="fa-solid fa-circle-check"></i> Rented</span></div>
+    </div>
+    <div class="income-row">
+      <div class="unit-badge"><div class="unit-dot" style="background:#f59e0b"></div>Unit 3 &mdash; 1 Bed / 1 Bath</div>
+      <div><div class="rent-val">$2,400</div><div style="font-size:10px;color:var(--teal2);margin-top:2px">Market rate at acquisition</div></div>
+      <div class="rent-annual">$28,800 / yr</div>
+      <div><span class="status-badge status-owner"><i class="fa-solid fa-house-user"></i> Owner Occupied</span></div>
+    </div>
+    <div class="income-row">
+      <div class="unit-badge"><div class="unit-dot" style="background:#22c55e"></div>Unit 4 &mdash; 3 Bed / 2 Bath</div>
+      <div><div class="rent-val">$3,500</div><div style="font-size:10px;color:var(--teal2);margin-top:2px">Market rate at acquisition</div></div>
+      <div class="rent-annual">$42,000 / yr</div>
+      <div><span class="status-badge status-owner"><i class="fa-solid fa-house-user"></i> Owner Occupied</span></div>
+    </div>
+    <div class="income-row total">
+      <div style="font-weight:700;font-size:13px">Total (Stabilized)</div>
+      <div><div class="rent-val" style="color:var(--gold)">$10,600/mo</div></div>
+      <div style="font-weight:700;color:var(--gold)">$127,200 / yr</div>
+      <div><span class="status-badge" style="background:rgba(201,168,76,.1);color:var(--gold);border:1px solid rgba(201,168,76,.25)"><i class="fa-solid fa-star"></i> Stabilized</span></div>
+    </div>
+  </div>
+
+  <div class="noi-grid">
+    <div class="noi-card">
+      <h3><i class="fa-solid fa-table-list"></i> Income &amp; Expenses</h3>
+      <div class="noi-row"><span class="lbl">Gross Rental Income</span><span class="val">$127,200</span></div>
+      <div class="noi-row"><span class="lbl">Property Taxes (2025 actual)</span><span class="val" style="color:#f87171">&minus; $23,972</span></div>
+      <div class="noi-row" style="font-size:11px;opacity:0.6;padding-top:0;padding-bottom:4px;"><span class="lbl" style="font-style:italic">* PACE lien balance reflected in assessed taxes will be cleared at closing</span><span class="val"></span></div>
+      <div class="noi-row"><span class="lbl">Insurance (actual)</span><span class="val" style="color:#f87171">&minus; $9,800</span></div>
+      <div class="noi-row"><span class="lbl">Maintenance / Repairs</span><span class="val" style="color:#f87171">&minus; $4,800</span></div>
+      <div class="noi-row total-row"><span class="lbl">Net Operating Income</span><span class="val">$88,628</span></div>
+    </div>
+    <div class="noi-card">
+      <h3><i      <h3><i class="fa-solid fa-chart-line"></i> Returns at a Glance</h3>
+      <div class="noi-row"><span class="lbl">Asking Price</span><span class="val">$1,225,000</span></div>
+      <div class="noi-row"><span class="lbl">Cap Rate</span><span class="val" style="color:var(--teal2)">7.23%</span></div>
+      <div class="noi-row"><span class="lbl">Price / Unit</span><span class="val">$306,250</span></div>
+      <div class="noi-row"><span class="lbl">Price / SF</span><span class="val">$452 / sf</span></div>
+      <div class="noi-row"><span class="lbl">Gross Rent Multiplier</span><span class="val">9.6x</span></div>
+      <div class="noi-row"><span class="lbl">Monthly NOI</span><span class="val" style="color:var(--teal2)">$7,386</span></div>
+      <div class="noi-row total-row"><span class="lbl">Annual NOI</span><span class="val">$88,628</span></div>
+    </div>
+  </div>
+  <div class="disclaimer">
+    <i class="fa-solid fa-triangle-exclamation"></i>
+    <span><strong style="color:var(--gold)">Disclaimer:</strong> Financial projections are estimates based on current rents and market data. Expenses are approximate. Buyers should conduct their own due diligence. Two units currently owner-occupied — income shown reflects market rate stabilization at acquisition.</span>
+  </div>
+</section>
+
+<!-- PROPERTY DETAILS -->
+<section id="property" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-house"></i> Property Details</div>
+  <div class="section-title">Fully Renovated &middot; Turnkey Ready</div>
+  <div class="section-sub">Everything has been updated. Zero deferred maintenance. Just collect rent.</div>
+  <div class="features-grid">
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-building"></i></div><div class="feature-text">Quadruplex &mdash; 4 Separate Units<span>3&times; 1Bed/1Bath + 1&times; 3Bed/2Bath</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-bolt"></i></div><div class="feature-text">4 Separate Electric Meters<span>No shared utilities &mdash; tenant pays own</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-wind"></i></div><div class="feature-text">Central A/C &mdash; All Units<span>New systems throughout</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-shield"></i></div><div class="feature-text">Impact Windows &amp; Doors<span>Full hurricane protection, lower insurance</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-helmet-safety"></i></div><div class="feature-text">New Roof<span>Recently replaced &mdash; no near-term capital need</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-plug"></i></div><div class="feature-text">Updated Electrical Panels<span>All units upgraded</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-utensils"></i></div><div class="feature-text">Renovated Kitchens &amp; Baths<span>Modern finishes, new appliances</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-shirt"></i></div><div class="feature-text">Washer/Dryer &mdash; All Units<span>In-unit laundry, premium amenity</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text">New Flooring Throughout<span>Updated in all 4 units</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-fence"></i></div><div class="feature-text">Fenced Yard + Exterior Upgrades<span>Landscaping and curb appeal done</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-ruler-combined"></i></div><div class="feature-text">2,711 SF Living Area<span>Year Built 1965 &middot; Effective 1980</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-location-dot"></i></div><div class="feature-text">Victoria Park / Las Olas Corridor<span>A+ Fort Lauderdale location</span></div></div>
+  </div>
+</section>
+
+<!-- LOT & LEGAL -->
+<section id="lot" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-map"></i> Lot &amp; Legal</div>
+  <div class="section-title">Site &amp; Parcel Information</div>
+  <div class="features-grid">
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-ruler-combined"></i></div><div class="feature-text">Lot Size<span>6,352 SF &mdash; Less Than 1/4 Acre</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-city"></i></div><div class="feature-text">Zoning: RC-15<span>Multi-family residential &mdash; quadruplex permitted</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-file-lines"></i></div><div class="feature-text">Legal Description<span>Las Olas Park Corr Plat 6-12 B, Lot 4, Block 2</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-hashtag"></i></div><div class="feature-text">Parcel Number<span>504202110160</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text">Subdivision<span>Las Olas Park Corrected Plat</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-receipt"></i></div><div class="feature-text">Annual Taxes<span>$23,972.05 &mdash; 2025 actual (PACE lien cleared at closing)</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-droplet"></i></div><div class="feature-text">4 Separate Water Meters<span>Individual metering per unit &mdash; tenants pay own water</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-bolt"></i></div><div class="feature-text">4 Separate Electric Meters<span>Individual metering per unit &mdash; tenants pay own electric</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-droplet"></i></div><div class="feature-text">Water &amp; Sewer<span>Public water &amp; sewer connected</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-building-columns"></i></div><div class="feature-text">County<span>Broward County, Florida</span></div></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-map-location-dot"></i> Location</div>
+  <div class="section-title">Victoria Park &mdash; Fort Lauderdale's Premier Neighborhood</div>
+  <div class="section-sub" style="margin-bottom:28px">Steps from Las Olas Blvd. Walking distance to dining, shops, and the beach. One of South Florida's most desirable rental markets.</div>
+  <div class="location-grid">
+    <div class="location-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.0!2d-80.1248!3d26.1254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9001f0bfef9f1%3A0xa0!2s1516+NE+6th+St%2C+Fort+Lauderdale%2C+FL+33304!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="location-points">
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-umbrella-beach"></i></div><div class="loc-text"><strong>Fort Lauderdale Beach</strong><span>~1.5 miles east &mdash; top rental demand driver</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-champagne-glasses"></i></div><div class="loc-text"><strong>Las Olas Boulevard</strong><span>Walking distance &mdash; dining, nightlife, boutiques</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-plane"></i></div><div class="loc-text"><strong>FLL Airport</strong><span>~4 miles south &mdash; strong short-term rental market</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-hospital"></i></div><div class="loc-text"><strong>Broward Health Medical Center</strong><span>~0.5 miles &mdash; consistent tenant base</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-road"></i></div><div class="loc-text"><strong>I-95 Access</strong><span>Minutes to highway &mdash; connects all of South Florida</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="loc-text"><strong>Victoria Park Premium</strong><span>A+ submarket &mdash; low vacancy, high demand, rising rents</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section" id="contact">
+  <div class="section-label" style="justify-content:center;display:flex"><i class="fa-solid fa-lock"></i>&nbsp; Limited Opportunity</div>
+  <h2>Ready to Move <span>Fast?</span></h2>
+  <p>This is an off-market deal. No days on market, no competition. Serious investors only &mdash; reach out for financials and showing details.</p>
+
+  <div style="display:flex;align-items:center;gap:20px;justify-content:center;margin:32px 0 28px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:14px;padding:24px 32px;max-width:420px;margin-left:auto;margin-right:auto">
+    <img src="/victoria-park-quad/randy.jpg" alt="Randy Novar" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);flex-shrink:0"/>
+    <div style="text-align:left">
+      <div style="font-size:17px;font-weight:700;color:var(--white);line-height:1.2">Randy Novar</div>
+      <div style="font-size:12px;color:var(--gold);font-weight:600;letter-spacing:.5px;text-transform:uppercase;margin-bottom:10px">Disposition Manager</div>
+      <a href="tel:+17867888273" style="display:flex;align-items:center;gap:8px;color:var(--gray);font-size:13px;text-decoration:none;margin-bottom:4px;transition:color .2s" onmouseover="this.style.color='#f8f6f1'" onmouseout="this.style.color='#94a3b8'"><i class="fa-solid fa-phone" style="color:var(--teal);width:14px"></i> (786) 788-8273</a>
+      <a href="mailto:disposition@rockethomesellers.com" style="display:flex;align-items:center;gap:8px;color:var(--gray);font-size:13px;text-decoration:none;transition:color .2s" onmouseover="this.style.color='#f8f6f1'" onmouseout="this.style.color='#94a3b8'"><i class="fa-solid fa-envelope" style="color:var(--teal);width:14px"></i> disposition@rockethomesellers.com</a>
+    </div>
+  </div>
+
+  <a href="mailto:disposition@rockethomesellers.com" class="cta-btn"><i class="fa-solid fa-envelope"></i> Request Full Package</a>
+  <a href="tel:+17867888273" class="cta-btn outline"><i class="fa-solid fa-phone"></i> Call Now</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>This offering is presented as an off-market investment opportunity. All financial projections are estimates and subject to verification. Buyers are encouraged to conduct independent due diligence. This is not a public listing.</p>
+</footer>
+
+<script>
+const PHOTOS=[
+  'https://cdn.photos.sparkplatform.com/flr/20241023091950917521000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091950980538000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091951167654000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091951350491000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091951541180000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091951616334000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091951792668000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091951965152000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091952158111000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091952376479000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091952570372000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091952742727000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091952924289000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091953964990000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091953264272000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091953449625000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091953619047000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091953684777000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091953869197000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091954476960000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091954256465000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091954447231000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091954624419000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091954803811000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091954876268000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091955476070000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091955229283000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091955408176000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091955570180000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091955734324000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091955796226000000-o.jpg',
+  'https://cdn.photos.sparkplatform.com/flr/20241023091955979985000000-o.jpg',
+];
+(function(){
+  const strip=document.getElementById('lb-strip');
+  PHOTOS.forEach((url,i)=>{
+    const img=document.createElement('img');
+    img.src=url;img.className='lb-thumb';img.loading='lazy';
+    img.onclick=()=>openLB(i);
+    strip.appendChild(img);
+  });
+})();
+let lbIdx=0;
+function openLB(i){
+  lbIdx=i;
+  document.getElementById('lb-img').src=PHOTOS[i];
+  document.getElementById('lb-counter').textContent=(i+1)+' / '+PHOTOS.length+' \u00b7 Victoria Park Quadruplex';
+  document.querySelectorAll('.lb-thumb').forEach((t,j)=>t.classList.toggle('active',j===i));
+  const strip=document.getElementById('lb-strip');
+  const thumb=strip.children[i];
+  if(thumb)strip.scrollTo({left:thumb.offsetLeft-strip.clientWidth/2+36,behavior:'smooth'});
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
+function lbNext(){lbIdx=(lbIdx+1)%PHOTOS.length;openLB(lbIdx);}
+function lbPrev(){lbIdx=(lbIdx-1+PHOTOS.length)%PHOTOS.length;openLB(lbIdx);}
+document.getElementById('lightbox').addEventListener('click',function(e){if(e.target===this)closeLB();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLB();if(e.key==='ArrowRight')lbNext();if(e.key==='ArrowLeft')lbPrev();});
+const lbMain=document.querySelector('.lb-main');
+let ltx=0;
+lbMain.addEventListener('touchstart',e=>{ltx=e.touches[0].clientX;},{passive:true});
+lbMain.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-ltx;if(Math.abs(dx)>40)dx<0?lbNext():lbPrev();},{passive:true});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});
+</script>
+</body>
+</html>
