@@ -217,23 +217,23 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
   <div class="photo-mosaic">
     <div class="mosaic-grid">
       <div class="mosaic-cell main" onclick="openLB(0)">
-        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/01-front-building.jpg" alt="Front Exterior" loading="eager"/>
+        <img src="/401-ne-14th-ave/photos/photo-01.jpg" alt="Front Exterior" loading="eager"/>
       </div>
       <div class="mosaic-cell" onclick="openLB(1)">
-        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-living.jpg" alt="Living Room" loading="lazy"/>
+        <img src="/401-ne-14th-ave/photos/photo-02.jpg" alt="Front Daytime" loading="lazy"/>
       </div>
       <div class="mosaic-cell" onclick="openLB(2)">
-        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-kitchen.jpg" alt="Kitchen" loading="lazy"/>
+        <img src="/401-ne-14th-ave/photos/photo-03.jpg" alt="Entry Detail" loading="lazy"/>
       </div>
       <div class="mosaic-cell" onclick="openLB(3)">
-        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/2-st-tropez-living.jpg" alt="Living Room 2" loading="lazy"/>
+        <img src="/401-ne-14th-ave/photos/photo-07.jpg" alt="Interior" loading="lazy"/>
       </div>
       <div class="mosaic-cell" onclick="openLB(4)">
-        <img src="https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-living.jpg" alt="Studio" loading="lazy"/>
+        <img src="/401-ne-14th-ave/photos/photo-18.jpg" alt="Aerial" loading="lazy"/>
       </div>
     </div>
     <button class="mosaic-see-all" onclick="openLB(0)">
-      <i class="fa-regular fa-images"></i> See all 14 photos
+      <i class="fa-regular fa-images"></i> See all 23 photos
     </button>
   </div>
 
@@ -251,7 +251,7 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lb-topbar">
-    <div class="lb-counter-txt" id="lb-counter">1 / 14 &middot; 401-403 NE 14th Ave</div>
+    <div class="lb-counter-txt" id="lb-counter">1 / 23 &middot; 401-403 NE 14th Ave</div>
     <button class="lb-close" onclick="closeLB()"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <div class="lb-main">
@@ -507,20 +507,29 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 
 <script>
 const PHOTOS=[
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/01-front-building.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-living.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-dining.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-kitchen.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-bedroom.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/1-santorini-bathroom.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/2-st-tropez-living.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/2-st-tropez-kitchen.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/2-st-tropez-bathroom.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-kitchen.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-dining.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-living.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-bedroom.jpg',
-  'https://sadeventure.com/projects/401-403-victoria-park/photos/3-taormina-bathroom.jpg',
+  '/401-ne-14th-ave/photos/photo-01.jpg',
+  '/401-ne-14th-ave/photos/photo-02.jpg',
+  '/401-ne-14th-ave/photos/photo-03.jpg',
+  '/401-ne-14th-ave/photos/photo-04.jpg',
+  '/401-ne-14th-ave/photos/photo-05.jpg',
+  '/401-ne-14th-ave/photos/photo-06.jpg',
+  '/401-ne-14th-ave/photos/photo-07.jpg',
+  '/401-ne-14th-ave/photos/photo-08.jpg',
+  '/401-ne-14th-ave/photos/photo-09.jpg',
+  '/401-ne-14th-ave/photos/photo-10.jpg',
+  '/401-ne-14th-ave/photos/photo-11.jpg',
+  '/401-ne-14th-ave/photos/photo-12.jpg',
+  '/401-ne-14th-ave/photos/photo-13.jpg',
+  '/401-ne-14th-ave/photos/photo-14.jpg',
+  '/401-ne-14th-ave/photos/photo-15.jpg',
+  '/401-ne-14th-ave/photos/photo-16.jpg',
+  '/401-ne-14th-ave/photos/photo-17.jpg',
+  '/401-ne-14th-ave/photos/photo-18.jpg',
+  '/401-ne-14th-ave/photos/photo-19.jpg',
+  '/401-ne-14th-ave/photos/photo-20.jpg',
+  '/401-ne-14th-ave/photos/photo-21.jpg',
+  '/401-ne-14th-ave/photos/photo-22.jpg',
+  '/401-ne-14th-ave/photos/photo-23.jpg',
 ];
 (function(){
   const strip=document.getElementById('lb-strip');
