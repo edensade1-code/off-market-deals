@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>401-403 NE 14th Ave | Off-Market Triplex | Victoria Park, Fort Lauderdale</title>
+<title>401 NE 14th Ave | Victoria Park Build Site | Off-Market Land Deal</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <style>
@@ -74,32 +74,13 @@ nav.scrolled{background:rgba(10,22,40,.96);backdrop-filter:blur(12px);border-bot
 .lb-thumb{width:70px;height:50px;object-fit:cover;border-radius:4px;cursor:pointer;opacity:.45;transition:opacity .2s;flex-shrink:0;border:2px solid transparent}
 .lb-thumb.active{opacity:1;border-color:var(--gold)}
 
-/* Unit badge — overlay on photos to identify which unit (Santorini/St Tropez/Taormina) */
-.unit-badge-overlay{position:absolute;top:10px;right:10px;background:rgba(10,22,40,.88);backdrop-filter:blur(8px);border:1px solid;padding:5px 11px;border-radius:7px;font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;z-index:5;display:flex;align-items:center;gap:6px;line-height:1.3}
-.unit-badge-overlay .ub-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.unit-badge-overlay .ub-name{font-weight:600;opacity:.85}
-.unit-badge-overlay.u401{border-color:rgba(34,191,172,.6)}
-.unit-badge-overlay.u401 .ub-dot{background:#22bfac}
-.unit-badge-overlay.u402{border-color:rgba(59,130,246,.6)}
-.unit-badge-overlay.u402 .ub-dot{background:#3b82f6}
-.unit-badge-overlay.u403{border-color:rgba(167,139,250,.6)}
-.unit-badge-overlay.u403 .ub-dot{background:#a78bfa}
-.lb-unit-badge{position:absolute;top:18px;right:24px;background:rgba(0,0,0,.78);backdrop-filter:blur(10px);border:1px solid;padding:7px 14px;border-radius:8px;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:#fff;z-index:10;display:none;align-items:center;gap:8px}
-.lb-unit-badge.show{display:flex}
-.lb-unit-badge .ub-dot{width:8px;height:8px;border-radius:50%}
-.lb-unit-badge .ub-name{font-weight:600;opacity:.9}
-.lb-unit-badge.u401{border-color:#22bfac}
-.lb-unit-badge.u401 .ub-dot{background:#22bfac}
-.lb-unit-badge.u402{border-color:#3b82f6}
-.lb-unit-badge.u402 .ub-dot{background:#3b82f6}
-.lb-unit-badge.u403{border-color:#a78bfa}
-.lb-unit-badge.u403 .ub-dot{background:#a78bfa}
+.demo-tag{position:absolute;top:10px;left:10px;background:rgba(220,38,38,.85);backdrop-filter:blur(8px);color:#fff;padding:4px 10px;border-radius:6px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;z-index:5}
 
 section{padding:72px 32px;max-width:1200px;margin:0 auto}
 .section-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal2);margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .section-label i{font-size:10px}
 .section-title{font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-0.5px;margin-bottom:8px}
-.section-sub{font-size:14px;color:var(--gray);margin-bottom:36px;max-width:600px}
+.section-sub{font-size:14px;color:var(--gray);margin-bottom:36px;max-width:680px}
 
 .metrics-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:44px}
 .metric{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative;overflow:hidden;transition:border-color .2s}
@@ -119,19 +100,14 @@ section{padding:72px 32px;max-width:1200px;margin:0 auto}
 .metric-sub{font-size:11px;color:var(--gray);margin-top:5px}
 
 .income-table{background:var(--navy2);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:36px}
-.income-hdr{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:12px 18px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border)}
-.income-row{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;padding:14px 18px;border-bottom:1px solid rgba(30,51,85,.5);align-items:center;transition:background .15s}
+.income-hdr{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;padding:12px 18px;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray);border-bottom:1px solid var(--border)}
+.income-row{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;padding:14px 18px;border-bottom:1px solid rgba(30,51,85,.5);align-items:center;transition:background .15s}
 .income-row:last-child{border-bottom:none}
 .income-row:hover{background:rgba(26,154,138,.04)}
 .income-row.total{background:rgba(201,168,76,.05);border-top:1px solid rgba(201,168,76,.18)}
-.unit-badge{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600}
-.unit-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.comp-name{font-size:13px;font-weight:600}
+.comp-sub{font-size:11px;color:var(--gray);margin-top:2px}
 .rent-val{font-size:14px;font-weight:700;color:var(--white)}
-.rent-annual{font-size:11px;color:var(--gray)}
-.status-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:10px;font-size:10px;font-weight:700;letter-spacing:.3px}
-.status-badge i{font-size:8px}
-.status-furnished{background:rgba(139,92,246,.12);color:#a78bfa;border:1px solid rgba(139,92,246,.25)}
-.status-vacant{background:rgba(251,191,36,.1);color:#fbbf24;border:1px solid rgba(251,191,36,.2)}
 
 .noi-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px}
 .noi-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px}
@@ -145,7 +121,6 @@ section{padding:72px 32px;max-width:1200px;margin:0 auto}
 .noi-row.total-row .lbl{color:var(--white);font-weight:700}
 .noi-row.total-row .val{color:var(--gold);font-size:15px;font-weight:800}
 
-/* Timeline / Strategy */
 .strategy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:36px}
 .strategy-card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative;overflow:hidden}
 .strategy-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
@@ -176,7 +151,6 @@ section{padding:72px 32px;max-width:1200px;margin:0 auto}
 .loc-text strong{display:block;font-size:13px;font-weight:600}
 .loc-text span{font-size:11px;color:var(--gray)}
 
-/* Terms banner */
 .terms-banner{background:linear-gradient(135deg,rgba(26,154,138,.08),rgba(201,168,76,.06));border:1px solid rgba(26,154,138,.2);border-radius:14px;padding:24px 28px;margin-bottom:36px;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px}
 .term-item{text-align:center}
 .term-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:4px}
@@ -216,11 +190,11 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 <body>
 
 <nav id="nav">
-  <div class="nav-brand">Off-Market Opportunity</div>
+  <div class="nav-brand">Off-Market Land Deal</div>
   <div class="nav-links">
     <a href="#terms">Terms</a>
-    <a href="#financials">Financials</a>
-    <a href="#property">Property</a>
+    <a href="#proforma">Pro Forma</a>
+    <a href="#comps">Comps</a>
     <a href="#strategy">Strategy</a>
     <a href="#location">Location</a>
   </div>
@@ -229,30 +203,29 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 
 <div class="hero">
   <div class="hero-top">
-    <div class="hero-tag"><i class="fa-solid fa-lock"></i> Off-Market &mdash; Cash / Hard Money</div>
-    <div style="font-size:clamp(16px,2.5vw,26px);font-weight:700;color:var(--teal2);letter-spacing:.5px;margin-bottom:4px">401-403 NE 14th Avenue, Fort Lauderdale, FL 33301</div>
-    <h1>Victoria Park <span>Art Deco Triplex</span></h1>
-    <div class="hero-loc"><strong>Fort Lauderdale, FL 33301</strong> &nbsp;&middot;&nbsp; Victoria Park &mdash; Prime Location</div>
+    <div class="hero-tag"><i class="fa-solid fa-hammer"></i> Off-Market &mdash; Land / Build-to-Sell</div>
+    <div style="font-size:clamp(16px,2.5vw,26px);font-weight:700;color:var(--teal2);letter-spacing:.5px;margin-bottom:4px">401 NE 14th Avenue, Fort Lauderdale, FL 33301</div>
+    <h1>Victoria Park <span>Build Site</span></h1>
+    <div class="hero-loc"><strong>7,000 SF Lot</strong> &nbsp;&middot;&nbsp; Demolish &amp; Build a Luxury SFR &mdash; Sell at <strong>$3.3M+</strong></div>
   </div>
 
   <div class="photo-mosaic">
     <div class="mosaic-grid">
       <div class="mosaic-cell main" onclick="openLB(0)">
-        <img src="/401-ne-14th-ave/photos/photo-01.jpg" alt="Front Exterior" loading="eager"/>
+        <img src="/401-ne-14th-ave/photos/photo-01.jpg" alt="Front Exterior &mdash; Existing Structure" loading="eager"/>
+        <div class="demo-tag">Teardown</div>
       </div>
-      <div class="mosaic-cell" onclick="openLB(1)">
-        <img src="/401-ne-14th-ave/photos/photo-02.jpg" alt="Front Daytime" loading="lazy"/>
+      <div class="mosaic-cell" onclick="openLB(17)">
+        <img src="/401-ne-14th-ave/photos/photo-18.jpg" alt="Aerial View &mdash; 7,000 SF Lot" loading="lazy"/>
       </div>
-      <div class="mosaic-cell" onclick="openLB(2)">
-        <img src="/401-ne-14th-ave/photos/photo-03.jpg" alt="Entry Detail" loading="lazy"/>
+      <div class="mosaic-cell" onclick="openLB(20)">
+        <img src="/401-ne-14th-ave/photos/photo-21.jpg" alt="Aerial &mdash; Victoria Park Surroundings" loading="lazy"/>
       </div>
-      <div class="mosaic-cell" onclick="openLB(40)">
-        <img src="/401-ne-14th-ave/photos/photo-41.jpg" alt="Unit 401 Santorini Interior" loading="lazy"/>
-        <div class="unit-badge-overlay u401"><span class="ub-dot"></span>Unit 401 <span class="ub-name">Santorini</span></div>
+      <div class="mosaic-cell" onclick="openLB(18)">
+        <img src="/401-ne-14th-ave/photos/photo-19.jpg" alt="Aerial Lot View" loading="lazy"/>
       </div>
-      <div class="mosaic-cell" onclick="openLB(27)">
-        <img src="/401-ne-14th-ave/photos/photo-28.jpg" alt="Unit 402 St Tropez Interior" loading="lazy"/>
-        <div class="unit-badge-overlay u402"><span class="ub-dot"></span>Unit 402 <span class="ub-name">St Tropez</span></div>
+      <div class="mosaic-cell" onclick="openLB(22)">
+        <img src="/401-ne-14th-ave/photos/photo-23.jpg" alt="Aerial &mdash; Walking Distance to Las Olas" loading="lazy"/>
       </div>
     </div>
     <button class="mosaic-see-all" onclick="openLB(0)">
@@ -261,12 +234,12 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
   </div>
 
   <div class="hero-pills-wrap">
-    <div class="pill"><i class="fa-solid fa-tag"></i> Asking <strong>$1,090,000</strong></div>
-    <div class="pill"><i class="fa-solid fa-building"></i> <strong>3</strong> Units</div>
-    <div class="pill"><i class="fa-solid fa-ruler-combined"></i> <strong>1,940</strong> SF Living</div>
+    <div class="pill"><i class="fa-solid fa-tag"></i> Land Asking <strong>$1,090,000</strong></div>
     <div class="pill"><i class="fa-solid fa-layer-group"></i> <strong>7,000</strong> SF Lot</div>
-    <div class="pill"><i class="fa-solid fa-hammer"></i> Built <strong>1968</strong> &middot; Gut Renovated <strong>2026</strong></div>
-    <div class="pill"><i class="fa-solid fa-couch"></i> Fully <strong>Furnished</strong></div>
+    <div class="pill"><i class="fa-solid fa-house-chimney"></i> Build <strong>4,200</strong> SF SFR</div>
+    <div class="pill"><i class="fa-solid fa-hammer"></i> Build at <strong>$300/SF</strong></div>
+    <div class="pill"><i class="fa-solid fa-arrow-trend-up"></i> ARV <strong>$3.3M+</strong></div>
+    <div class="pill"><i class="fa-solid fa-chart-line"></i> Margin <strong>~$460K&ndash;$740K</strong></div>
     <div class="pill"><i class="fa-solid fa-money-bill-wave"></i> Cash or Hard Money</div>
   </div>
 </div>
@@ -274,13 +247,12 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lb-topbar">
-    <div class="lb-counter-txt" id="lb-counter">1 / 50 &middot; 401-403 NE 14th Ave</div>
+    <div class="lb-counter-txt" id="lb-counter">1 / 50 &middot; 401 NE 14th Ave</div>
     <button class="lb-close" onclick="closeLB()"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <div class="lb-main">
     <button class="lb-arr l" onclick="lbPrev()"><i class="fa-solid fa-chevron-left"></i></button>
     <img class="lb-img" id="lb-img" src="" alt=""/>
-    <div class="lb-unit-badge" id="lb-unit-badge"><span class="ub-dot"></span><span class="ub-num"></span> &mdash; <span class="ub-name"></span></div>
     <button class="lb-arr r" onclick="lbNext()"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
   <div class="lb-strip" id="lb-strip"></div>
@@ -289,218 +261,242 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 <!-- TERMS -->
 <section id="terms">
   <div class="section-label"><i class="fa-solid fa-file-contract"></i> Deal Terms</div>
-  <div class="section-title">Clean Off-Market Transaction</div>
-  <div class="section-sub">No listing, no competition. Cash or hard money preferred. Fast close available.</div>
+  <div class="section-title">Off-Market Land &mdash; Buy the Lot, Build the Home</div>
+  <div class="section-sub">7,000 SF tear-down lot in Victoria Park &mdash; one of Fort Lauderdale's most desirable submarkets. The play is land: demolish the existing structure, build a high-end single-family home, and sell into the new-construction comp set north of $3.3M.</div>
   <div class="terms-banner">
     <div class="term-item">
-      <div class="term-label">Asking Price</div>
+      <div class="term-label">Land Asking</div>
       <div class="term-val">$1,090,000</div>
-      <div class="term-sub">Off-market</div>
+      <div class="term-sub">7,000 SF lot</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Land $ / SF</div>
+      <div class="term-val">$156</div>
+      <div class="term-sub">Per square foot of lot</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Build Size</div>
+      <div class="term-val">4,200 SF</div>
+      <div class="term-sub">Luxury SFR</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Build Cost</div>
+      <div class="term-val">$300 / SF</div>
+      <div class="term-sub">$1.26M total construction</div>
+    </div>
+    <div class="term-item">
+      <div class="term-label">Target ARV</div>
+      <div class="term-val">$3.3M+</div>
+      <div class="term-sub">$785+ / SF resale</div>
     </div>
     <div class="term-item">
       <div class="term-label">Financing</div>
       <div class="term-val" style="font-size:16px;padding-top:4px">Cash / Hard Money</div>
-      <div class="term-sub">No conventional financing</div>
-    </div>
-    <div class="term-item">
-      <div class="term-label">Price / Unit</div>
-      <div class="term-val">$363,333</div>
-      <div class="term-sub">3 fully renovated units</div>
-    </div>
-    <div class="term-item">
-      <div class="term-label">Price / SF</div>
-      <div class="term-val">$562</div>
-      <div class="term-sub">1,940 SF living area</div>
-    </div>
-    <div class="term-item">
-      <div class="term-label">Condition</div>
-      <div class="term-val" style="font-size:16px;padding-top:4px">Turn-Key</div>
-      <div class="term-sub">Gut renovated 2026</div>
-    </div>
-    <div class="term-item">
-      <div class="term-label">Close Timeline</div>
-      <div class="term-val" style="font-size:16px;padding-top:4px">Flexible</div>
-      <div class="term-sub">Fast close preferred</div>
+      <div class="term-sub">Construction loan friendly</div>
     </div>
   </div>
 </section>
 
-<!-- FINANCIALS -->
-<section id="financials" style="padding-top:0">
-  <div class="section-label"><i class="fa-solid fa-chart-pie"></i> Investment Snapshot</div>
-  <div class="section-title">Fully Renovated &mdash; Rent Day One</div>
-  <div class="section-sub">Three furnished units ready to generate income immediately. Real numbers — actual 2025 taxes and insurance.</div>
+<!-- PRO FORMA -->
+<section id="proforma" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-chart-pie"></i> Build Pro Forma</div>
+  <div class="section-title">Land &rarr; Build &rarr; Sell</div>
+  <div class="section-sub">Numbers built around a 4,200 SF luxury SFR at $300/SF construction cost, sold into the Victoria Park new-construction comp set starting at $3.3M. Median Victoria Park resale is currently $576/SF (up 21.5% YoY) &mdash; premium new construction trades meaningfully higher.</div>
 
   <div class="metrics-grid">
     <div class="metric gold">
-      <div class="metric-label"><i class="fa-solid fa-tag"></i> Asking Price</div>
+      <div class="metric-label"><i class="fa-solid fa-tag"></i> Land Cost</div>
       <div class="metric-val gold">$1.09M</div>
-      <div class="metric-sub">Cash or hard money</div>
+      <div class="metric-sub">7,000 SF lot</div>
+    </div>
+    <div class="metric blue">
+      <div class="metric-label"><i class="fa-solid fa-hammer"></i> Build Cost</div>
+      <div class="metric-val blue">$1.26M</div>
+      <div class="metric-sub">4,200 SF &times; $300/SF</div>
+    </div>
+    <div class="metric blue">
+      <div class="metric-label"><i class="fa-solid fa-folder-open"></i> Soft Costs</div>
+      <div class="metric-val blue">$200K</div>
+      <div class="metric-sub">Permit, design, carry</div>
     </div>
     <div class="metric teal">
-      <div class="metric-label"><i class="fa-solid fa-money-bill-wave"></i> Gross Annual Income</div>
-      <div class="metric-val teal">$84,000</div>
-      <div class="metric-sub">3 units at market rent</div>
-    </div>
-    <div class="metric teal">
-      <div class="metric-label"><i class="fa-solid fa-circle-dollar-to-slot"></i> Net Operating Income</div>
-      <div class="metric-val teal">$53,983</div>
-      <div class="metric-sub">After taxes, insurance &amp; maintenance</div>
+      <div class="metric-label"><i class="fa-solid fa-arrow-trend-up"></i> ARV (Conservative)</div>
+      <div class="metric-val teal">$3.30M</div>
+      <div class="metric-sub">$786 / SF resale</div>
     </div>
     <div class="metric gold">
-      <div class="metric-label"><i class="fa-solid fa-percent"></i> Cap Rate</div>
-      <div class="metric-val gold">4.95%</div>
-      <div class="metric-sub">Victoria Park premium</div>
+      <div class="metric-label"><i class="fa-solid fa-circle-dollar-to-slot"></i> Net Profit</div>
+      <div class="metric-val gold">$462K</div>
+      <div class="metric-sub">After all-in &amp; selling costs</div>
     </div>
-    <div class="metric blue">
-      <div class="metric-label"><i class="fa-solid fa-receipt"></i> 2025 Property Taxes</div>      <div class="metric-val blue">$18,477</div>
-      <div class="metric-sub">Actual 2025 assessment</div>
-    </div>
-    <div class="metric blue">
-      <div class="metric-label"><i class="fa-solid fa-shield-halved"></i> Insurance / Year</div>
-      <div class="metric-val blue">$9,800</div>
-      <div class="metric-sub">Annual premium</div>
-    </div>
-  </div>
-
-  <div class="section-label"><i class="fa-solid fa-list-check"></i> Rent Roll</div>
-  <div class="section-title" style="margin-bottom:22px">Projected Income by Unit</div>
-  <div class="income-table">
-    <div class="income-hdr">
-      <span>Unit</span>
-      <span>Monthly</span>
-      <span>Annual</span>
-      <span>Type</span>
-    </div>
-    <div class="income-row">
-      <div class="unit-badge"><div class="unit-dot" style="background:#22bfac"></div>Unit 401 &mdash; Santorini &mdash; 1BD/1BA</div>
-      <div><div class="rent-val">$2,800</div><div style="font-size:10px;color:var(--gray);margin-top:2px">745 SF</div></div>
-      <div class="rent-annual">$33,600 / yr</div>
-      <div><span class="status-badge status-furnished"><i class="fa-solid fa-couch"></i> Furnished</span></div>
-    </div>
-    <div class="income-row">
-      <div class="unit-badge"><div class="unit-dot" style="background:#3b82f6"></div>Unit 402 &mdash; St Tropez &mdash; 1BD/1BA</div>
-      <div><div class="rent-val">$2,800</div><div style="font-size:10px;color:var(--gray);margin-top:2px">745 SF</div></div>
-      <div class="rent-annual">$33,600 / yr</div>
-      <div><span class="status-badge status-furnished"><i class="fa-solid fa-couch"></i> Furnished</span></div>
-    </div>
-    <div class="income-row">
-      <div class="unit-badge"><div class="unit-dot" style="background:#a78bfa"></div>Unit 403 &mdash; Taormina &mdash; Studio/1BA</div>
-      <div><div class="rent-val">$1,400</div><div style="font-size:10px;color:var(--gray);margin-top:2px">450 SF</div></div>
-      <div class="rent-annual">$16,800 / yr</div>
-      <div><span class="status-badge status-furnished"><i class="fa-solid fa-couch"></i> Furnished</span></div>
-    </div>
-    <div class="income-row total">
-      <div style="font-weight:700;font-size:13px">Total (Stabilized)</div>
-      <div><div class="rent-val" style="color:var(--gold)">$7,000/mo</div></div>
-      <div style="font-weight:700;color:var(--gold)">$84,000 / yr</div>
-      <div><span class="status-badge" style="background:rgba(201,168,76,.1);color:var(--gold);border:1px solid rgba(201,168,76,.25)"><i class="fa-solid fa-star"></i> Fully Rented</span></div>
+    <div class="metric purple">
+      <div class="metric-label"><i class="fa-solid fa-percent"></i> Margin on Cost</div>
+      <div class="metric-val purple">17.5%</div>
+      <div class="metric-sub">Conservative case</div>
     </div>
   </div>
 
   <div class="noi-grid">
     <div class="noi-card">
-      <h3><i class="fa-solid fa-table-list"></i> Income &amp; Expenses</h3>
-      <div class="noi-row"><span class="lbl">Gross Rental Income</span><span class="val">$84,000</span></div>
-      <div class="noi-row"><span class="lbl">Property Taxes (2025 actual)</span><span class="val" style="color:#f87171">&minus; $18,477</span></div>
-      <div class="noi-row"><span class="lbl">Insurance (actual)</span><span class="val" style="color:#f87171">&minus; $9,800</span></div>
-      <div class="noi-row"><span class="lbl">Maintenance / Repairs</span><span class="val" style="color:#f87171">&minus; $1,740</span></div>
-      <div class="noi-row total-row"><span class="lbl">Net Operating Income</span><span class="val">$53,983</span></div>
+      <h3><i class="fa-solid fa-table-list"></i> All-In Cost Breakdown</h3>
+      <div class="noi-row"><span class="lbl">Land Acquisition</span><span class="val">$1,090,000</span></div>
+      <div class="noi-row"><span class="lbl">Demolition</span><span class="val">$30,000</span></div>
+      <div class="noi-row"><span class="lbl">Construction (4,200 SF &times; $300)</span><span class="val">$1,260,000</span></div>
+      <div class="noi-row"><span class="lbl">Soft Costs (permit, design, carry)</span><span class="val">$200,000</span></div>
+      <div class="noi-row"><span class="lbl">Closing &amp; Holding</span><span class="val">$60,000</span></div>
+      <div class="noi-row total-row"><span class="lbl">Total All-In</span><span class="val">$2,640,000</span></div>
     </div>
     <div class="noi-card">
-      <h3><i class="fa-solid fa-chart-line"></i> Returns at a Glance</h3>
-      <div class="noi-row"><span class="lbl">Asking Price</span><span class="val">$1,090,000</span></div>
-      <div class="noi-row"><span class="lbl">Cap Rate</span><span class="val" style="color:var(--teal2)">4.95%</span></div>
-      <div class="noi-row"><span class="lbl">Price / Unit</span><span class="val">$363,333</span></div>
-      <div class="noi-row"><span class="lbl">Price / SF (living)</span><span class="val">$562 / sf</span></div>
-      <div class="noi-row"><span class="lbl">Gross Rent Multiplier</span><span class="val">13.0x</span></div>
-      <div class="noi-row"><span class="lbl">Monthly NOI</span><span class="val" style="color:var(--teal2)">$4,499</span></div>
-      <div class="noi-row total-row"><span class="lbl">Annual NOI</span><span class="val">$53,983</span></div>
+      <h3><i class="fa-solid fa-chart-line"></i> Exit Scenarios</h3>
+      <div class="noi-row"><span class="lbl">Sell @ $786/SF (start)</span><span class="val" style="color:var(--teal2)">$3,300,000</span></div>
+      <div class="noi-row"><span class="lbl">Sell @ $833/SF (market)</span><span class="val" style="color:var(--teal2)">$3,500,000</span></div>
+      <div class="noi-row"><span class="lbl">Sell @ $880/SF (premium)</span><span class="val" style="color:var(--teal2)">$3,700,000</span></div>
+      <div class="noi-row"><span class="lbl">Selling Costs (~6%)</span><span class="val" style="color:#f87171">&minus; $198K&ndash;$222K</span></div>
+      <div class="noi-row"><span class="lbl">Net Profit (low / high)</span><span class="val" style="color:var(--gold)">$462K &ndash; $838K</span></div>
+      <div class="noi-row total-row"><span class="lbl">Margin on Cost (range)</span><span class="val">17.5% &ndash; 32%</span></div>
     </div>
   </div>
   <div class="disclaimer">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <span><strong style="color:var(--gold)">Note:</strong> Expenses reflect actual 2025 taxes ($18,476.98) and real insurance premium ($9,800). No vacancy or management fee applied. Victoria Park commands a location premium — value is driven by lot size, renovation quality, and new construction upside. Rental income projections are market estimates; buyers should verify independently.</span>
+    <span><strong style="color:var(--gold)">Pro forma assumptions:</strong> Build size of 4,200 SF assumed to fit Fort Lauderdale RS-8 setbacks and FAR on the 7,000 SF lot &mdash; verify with city/architect. Build cost of $300/SF assumes high-end finishes typical for Victoria Park new construction. ARV starts at $3.3M based on Victoria Park new-construction comps (see comp set below); final pricing depends on design, finish level, and market timing at delivery. All numbers are estimates &mdash; buyer to verify with builder, architect, and broker.</span>
   </div>
 </section>
 
-<!-- INVESTMENT STRATEGY -->
+<!-- COMPS -->
+<section id="comps" style="padding-top:0">
+  <div class="section-label"><i class="fa-solid fa-magnifying-glass-chart"></i> Victoria Park Comps</div>
+  <div class="section-title">New Construction Comp Set</div>
+  <div class="section-sub">What comparable new construction is selling for in Victoria Park (April 2026). Median resale across the neighborhood is $576/SF, up 21.5% year-over-year. New construction trades at a premium.</div>
+
+  <div class="income-table">
+    <div class="income-hdr">
+      <span>Comp</span>
+      <span>Sale / Ask</span>
+      <span>Living SF</span>
+      <span>$ / SF</span>
+    </div>
+    <div class="income-row">
+      <div>
+        <div class="comp-name">525 NE 8th Ave</div>
+        <div class="comp-sub">New construction &middot; 4BR / 4BA</div>
+      </div>
+      <div><div class="rent-val">$2,685,000</div></div>
+      <div><div class="rent-val">~4,100 SF</div></div>
+      <div><div class="rent-val">~$655 / SF</div></div>
+    </div>
+    <div class="income-row">
+      <div>
+        <div class="comp-name">The Villas at Victoria Park</div>
+        <div class="comp-sub">Completed 2025 &middot; 4BR + Den / 4BA</div>
+      </div>
+      <div><div class="rent-val">Luxury Tier</div></div>
+      <div><div class="rent-val">2,928 SF</div></div>
+      <div><div class="rent-val">$600+ / SF</div></div>
+    </div>
+    <div class="income-row">
+      <div>
+        <div class="comp-name">Regency Park Townhomes</div>
+        <div class="comp-sub">New &middot; 3&ndash;4BR &middot; from $1.9M</div>
+      </div>
+      <div><div class="rent-val">$1,900,000+</div></div>
+      <div><div class="rent-val">2,930&ndash;3,077 SF</div></div>
+      <div><div class="rent-val">~$620 / SF</div></div>
+    </div>
+    <div class="income-row">
+      <div>
+        <div class="comp-name">Victoria Park Median (resale)</div>
+        <div class="comp-sub">Apr 2026 &middot; 103 sales last 12 months</div>
+      </div>
+      <div><div class="rent-val">$1,391,816</div></div>
+      <div><div class="rent-val">&mdash;</div></div>
+      <div><div class="rent-val">$576 / SF</div></div>
+    </div>
+    <div class="income-row total">
+      <div style="font-weight:700;font-size:13px">Target Build &mdash; This Site</div>
+      <div><div class="rent-val" style="color:var(--gold)">$3.3M&ndash;$3.7M</div></div>
+      <div style="font-weight:700">4,200 SF</div>
+      <div style="font-weight:700;color:var(--gold)">$786&ndash;$880 / SF</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY -->
 <section id="strategy" style="padding-top:0">
-  <div class="section-label"><i class="fa-solid fa-road"></i> Investment Strategy</div>
-  <div class="section-title">Buy, Hold &amp; Build</div>
-  <div class="section-sub">Victoria Park land play with immediate income. Rent furnished units while positioning for new construction exit.</div>
+  <div class="section-label"><i class="fa-solid fa-road"></i> Execution Plan</div>
+  <div class="section-title">Three Phases &mdash; ~18 Months</div>
+  <div class="section-sub">Acquire the land cheap, demolish, design and build a luxury SFR that hits the Victoria Park new-construction comp set, sell into a market with rising $/SF.</div>
 
   <div class="strategy-grid">
     <div class="strategy-card">
-      <div class="strategy-phase">Phase 1 &mdash; Now</div>
-      <div class="strategy-title" style="color:var(--teal2)">Acquire &amp; Rent</div>
-      <div class="strategy-sub">Immediate cash flow from day one</div>
+      <div class="strategy-phase">Phase 1 &mdash; Months 0&ndash;3</div>
+      <div class="strategy-title" style="color:var(--teal2)">Acquire &amp; Permit</div>
+      <div class="strategy-sub">Land control, design, demolition</div>
       <ul class="strategy-points">
-        <li><i class="fa-solid fa-check"></i> 3 furnished units ready to rent</li>
-        <li><i class="fa-solid fa-check"></i> $7,000/mo gross income</li>
-        <li><i class="fa-solid fa-check"></i> Zero deferred maintenance</li>
-        <li><i class="fa-solid fa-check"></i> Private entry each unit</li>
+        <li><i class="fa-solid fa-check"></i> Close land at $1.09M (cash / HML)</li>
+        <li><i class="fa-solid fa-check"></i> Architect &amp; engineer drawings</li>
+        <li><i class="fa-solid fa-check"></i> Demolish existing structure</li>
+        <li><i class="fa-solid fa-check"></i> Pull building permit</li>
       </ul>
     </div>
     <div class="strategy-card">
-      <div class="strategy-phase">Phase 2 &mdash; Year 1-3</div>
-      <div class="strategy-title" style="color:var(--gold)">Hold &amp; Appreciate</div>
-      <div class="strategy-sub">Income covers carry while land appreciates</div>
+      <div class="strategy-phase">Phase 2 &mdash; Months 3&ndash;14</div>
+      <div class="strategy-title" style="color:var(--gold)">Build the SFR</div>
+      <div class="strategy-sub">4,200 SF luxury home at $300/SF</div>
       <ul class="strategy-points">
-        <li><i class="fa-solid fa-check"></i> 7,000 SF lot in Victoria Park</li>
-        <li><i class="fa-solid fa-check"></i> STR upside if market supports</li>
-        <li><i class="fa-solid fa-check"></i> Rising rents in A+ submarket</li>
-        <li><i class="fa-solid fa-check"></i> Renovated = no cap-ex pressure</li>
+        <li><i class="fa-solid fa-check"></i> Foundation, frame, dry-in</li>
+        <li><i class="fa-solid fa-check"></i> High-end finishes (Victoria Park spec)</li>
+        <li><i class="fa-solid fa-check"></i> Pool / outdoor on 7,000 SF lot</li>
+        <li><i class="fa-solid fa-check"></i> Impact windows, smart home</li>
       </ul>
     </div>
     <div class="strategy-card">
-      <div class="strategy-phase">Phase 3 &mdash; Exit</div>
-      <div class="strategy-title" style="color:#a78bfa">Demolish &amp; Build</div>
-      <div class="strategy-sub">Significant appreciation upside</div>
+      <div class="strategy-phase">Phase 3 &mdash; Months 14&ndash;18</div>
+      <div class="strategy-title" style="color:#a78bfa">List &amp; Sell</div>
+      <div class="strategy-sub">Exit at new-construction comp pricing</div>
       <ul class="strategy-points">
-        <li><i class="fa-solid fa-check"></i> Permit new construction</li>
-        <li><i class="fa-solid fa-check"></i> New luxury build in Victoria Park</li>
-        <li><i class="fa-solid fa-check"></i> Sell or rent at new construction value</li>
-        <li><i class="fa-solid fa-check"></i> Land value play, not just yield</li>
+        <li><i class="fa-solid fa-check"></i> CO &amp; punch list</li>
+        <li><i class="fa-solid fa-check"></i> List at $3.3M&ndash;$3.7M</li>
+        <li><i class="fa-solid fa-check"></i> Net $460K&ndash;$840K profit</li>
+        <li><i class="fa-solid fa-check"></i> 1031 or cash distribution</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- PROPERTY DETAILS -->
+<!-- LOT / WHY THIS LOT -->
 <section id="property" style="padding-top:0">
-  <div class="section-label"><i class="fa-solid fa-house"></i> Property Details</div>
-  <div class="section-title">Gut Renovated in 2026 &mdash; Nothing Left to Do</div>
-  <div class="section-sub">Full interior renovation across all 3 units. Art Deco character with modern finishes throughout.</div>
+  <div class="section-label"><i class="fa-solid fa-map-pin"></i> Why This Lot</div>
+  <div class="section-title">7,000 SF in the Heart of Victoria Park</div>
+  <div class="section-sub">Lot quality is everything in a build deal. This site checks the boxes that determine whether a Victoria Park SFR can clear $3M+: size, location, dry land, walkability, no waterfront premium needed.</div>
   <div class="features-grid">
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-building"></i></div><div class="feature-text">Art Deco Triplex &mdash; 3 Separate Units<span>Unit 401 &amp; 402: 1BD/1BA (745 SF each) &middot; Unit 403: Studio/1BA (450 SF)</span></div></div>
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-couch"></i></div><div class="feature-text">Fully Furnished &mdash; Turn-Key<span>All 3 units furnished and ready to rent</span></div></div>
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-door-open"></i></div><div class="feature-text">Private Entry &mdash; Each Unit<span>No shared hallways &mdash; fully independent</span></div></div>
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-utensils"></i></div><div class="feature-text">Renovated Kitchens &amp; Baths<span>Modern finishes, new appliances throughout</span></div></div>
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-leaf"></i></div><div class="feature-text">Patio &amp; Tropical Landscaping<span>Outdoor space with curb appeal</span></div></div>
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-ruler-combined"></i></div><div class="feature-text">1,940 SF Living &middot; 7,000 SF Lot<span>Built 1968 &middot; Fully renovated 2026</span></div></div>
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-city"></i></div><div class="feature-text">Victoria Park &mdash; Fort Lauderdale<span>One of South Florida's most desirable submarkets</span></div></div>
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-hammer"></i></div><div class="feature-text">New Construction Play<span>7,000 SF lot &mdash; demolish &amp; build future option</span></div></div>
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-paint-roller"></i></div><div class="feature-text">Gut Renovation &mdash; All 3 Units<span>Full interior including flooring, fixtures, walls</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text">7,000 SF Lot &mdash; Buildable<span>Sized for a 4,200 SF SFR with pool &amp; outdoor</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-city"></i></div><div class="feature-text">Victoria Park Address<span>One of Fort Lauderdale's top SFR submarkets</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-champagne-glasses"></i></div><div class="feature-text">Walk to Las Olas<span>Walkability premium &mdash; rare for build sites at this price</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-umbrella-beach"></i></div><div class="feature-text">~1.5 mi to the Beach<span>Lifestyle driver for $3M+ buyers</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-water"></i></div><div class="feature-text">Dry Land &mdash; Not Waterfront<span>No seawall, no dock cap-ex, lower carry</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-wrecking-ball"></i></div><div class="feature-text">Existing Structure = Teardown<span>1968 building &mdash; demolish; value is in the dirt</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="feature-text">$/SF Rising 21.5% YoY<span>Tailwind through build &amp; sale window</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-house"></i></div><div class="feature-text">SFR Demand &gt; Townhome<span>Detached new construction is the scarce product</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-money-bill-wave"></i></div><div class="feature-text">Land at $156/SF<span>Below replacement cost for a buildable Victoria Park lot</span></div></div>
   </div>
 </section>
 
 <!-- LOCATION -->
 <section id="location" style="padding-top:0">
   <div class="section-label"><i class="fa-solid fa-map-location-dot"></i> Location</div>
-  <div class="section-title">Victoria Park &mdash; Fort Lauderdale's Premier Address</div>
-  <div class="section-sub" style="margin-bottom:28px">Walking distance to Las Olas Blvd. Minutes from the beach. One of the most sought-after rental submarkets in all of Broward County.</div>
+  <div class="section-title">Victoria Park &mdash; Where the $3M Buyers Want to Live</div>
+  <div class="section-sub" style="margin-bottom:28px">Walking distance to Las Olas. Minutes from the beach. The submarket where new construction trades at the highest $/SF in Fort Lauderdale outside of waterfront.</div>
   <div class="location-grid">
     <div class="location-map">
       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.4!2d-80.1290!3d26.1310!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s401+NE+14th+Ave%2C+Fort+Lauderdale%2C+FL+33301!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <div class="location-points">
-      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-champagne-glasses"></i></div><div class="loc-text"><strong>Las Olas Boulevard</strong><span>Walking distance &mdash; dining, nightlife, boutiques</span></div></div>
-      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-umbrella-beach"></i></div><div class="loc-text"><strong>Fort Lauderdale Beach</strong><span>~1.5 miles east &mdash; top rental demand driver</span></div></div>
-      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-plane"></i></div><div class="loc-text"><strong>FLL Airport</strong><span>~4 miles south &mdash; strong STR demand</span></div></div>
-      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-hospital"></i></div><div class="loc-text"><strong>Broward Health Medical Center</strong><span>~0.5 miles &mdash; consistent tenant base</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-champagne-glasses"></i></div><div class="loc-text"><strong>Las Olas Boulevard</strong><span>Walking distance &mdash; key value driver for new construction buyers</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-umbrella-beach"></i></div><div class="loc-text"><strong>Fort Lauderdale Beach</strong><span>~1.5 miles east &mdash; the lifestyle pitch</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-plane"></i></div><div class="loc-text"><strong>FLL Airport</strong><span>~4 miles south &mdash; out-of-state buyer convenience</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-school"></i></div><div class="loc-text"><strong>Top-Rated Schools</strong><span>Bayview Elementary &amp; Sunrise Middle &mdash; family-buyer pool</span></div></div>
       <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-road"></i></div><div class="loc-text"><strong>I-95 Access</strong><span>Minutes to highway &mdash; connects all of South Florida</span></div></div>
-      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="loc-text"><strong>Victoria Park Premium</strong><span>A+ submarket &mdash; lowest vacancy, highest rents in FTL</span></div></div>
+      <div class="loc-point"><div class="loc-icon"><i class="fa-solid fa-arrow-trend-up"></i></div><div class="loc-text"><strong>Victoria Park Premium</strong><span>$576/SF median resale, +21.5% YoY &mdash; new construction premium on top</span></div></div>
     </div>
   </div>
 </section>
@@ -508,8 +504,8 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 <!-- CTA -->
 <div class="cta-section" id="contact">
   <div class="section-label" style="justify-content:center;display:flex"><i class="fa-solid fa-lock"></i>&nbsp; Limited Opportunity</div>
-  <h2>Ready to Move <span>Fast?</span></h2>
-  <p>This is an off-market deal. No days on market, no competition. Serious investors only &mdash; reach out for financials and showing details.</p>
+  <h2>Build the <span>Next $3M+ Sale</span> in Victoria Park</h2>
+  <p>Off-market land deal. No competition, no listing. Serious investors and builders only &mdash; reach out for full pro forma, lot details, and zoning package.</p>
 
   <div style="display:flex;align-items:center;gap:20px;justify-content:center;margin:32px 0 28px;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:14px;padding:24px 32px;max-width:420px;margin-left:auto;margin-right:auto">
     <img src="/401-ne-14th-ave/randy.jpg" alt="Randy Novar" style="width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--gold);flex-shrink:0"/>
@@ -526,26 +522,14 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 </div>
 
 <footer>
-  <p>This offering is presented as an off-market investment opportunity. All financial projections are estimates and subject to independent verification. Taxes shown are actual 2025 assessed amounts. Rental income is projected at market rates. This is not a public listing or solicitation.</p>
+  <p>This offering is presented as an off-market land / build-to-sell investment opportunity. All financial projections, comp data, and buildable square footage estimates are for discussion purposes and subject to independent verification by buyer's architect, builder, and broker. Victoria Park comp data sourced from Redfin / Homes.com / Zillow as of April 2026. This is not a public listing or solicitation.</p>
 </footer>
 
 <script>
-// Unit metadata — UNIT_RANGE maps photo number ranges to a unit. Edit here to re-assign photos to a different unit.
-const UNITS={
-  401:{name:'Santorini',color:'#22bfac'},
-  402:{name:'St Tropez',color:'#3b82f6'},
-  403:{name:'Taormina',color:'#a78bfa'},
-};
-function unitFor(photoNum){
-  if(photoNum>=24 && photoNum<=32)return 402; // St Tropez (terracotta kitchen)
-  if(photoNum>=33 && photoNum<=38)return 403; // Taormina (studio, yellow kitchenette)
-  if(photoNum>=39 && photoNum<=50)return 401; // Santorini (blue kitchen, modern)
-  return null; // 1-23 are exteriors, no unit
-}
 const PHOTOS=[];
 for(let n=1;n<=50;n++){
   const num=String(n).padStart(2,'0');
-  PHOTOS.push({url:`/401-ne-14th-ave/photos/photo-${num}.jpg`,unit:unitFor(n)});
+  PHOTOS.push({url:`/401-ne-14th-ave/photos/photo-${num}.jpg`});
 }
 (function(){
   const strip=document.getElementById('lb-strip');
@@ -561,15 +545,7 @@ function openLB(i){
   lbIdx=i;
   const p=PHOTOS[i];
   document.getElementById('lb-img').src=p.url;
-  document.getElementById('lb-counter').textContent=(i+1)+' / '+PHOTOS.length+' \u00b7 401-403 NE 14th Ave';
-  const badge=document.getElementById('lb-unit-badge');
-  badge.classList.remove('show','u401','u402','u403');
-  if(p.unit){
-    const u=UNITS[p.unit];
-    badge.classList.add('show','u'+p.unit);
-    badge.querySelector('.ub-num').textContent='Unit '+p.unit;
-    badge.querySelector('.ub-name').textContent=u.name;
-  }
+  document.getElementById('lb-counter').textContent=(i+1)+' / '+PHOTOS.length+' · 401 NE 14th Ave';
   document.querySelectorAll('.lb-thumb').forEach((t,j)=>t.classList.toggle('active',j===i));
   const strip=document.getElementById('lb-strip');
   const thumb=strip.children[i];
