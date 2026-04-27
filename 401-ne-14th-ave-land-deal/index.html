@@ -42,14 +42,29 @@ nav.scrolled{background:rgba(10,22,40,.96);backdrop-filter:blur(12px);border-bot
 .hero-loc strong{color:var(--white)}
 
 .photo-mosaic{max-width:1200px;margin:0 auto;padding:16px 24px 0;position:relative}
-.mosaic-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:250px 250px;gap:4px;border-radius:12px;overflow:hidden}
-.mosaic-cell{overflow:hidden;cursor:pointer;position:relative;background:var(--navy2)}
-.mosaic-cell img{width:100%;height:100%;object-fit:cover;transition:transform .35s,filter .35s}
-.mosaic-cell:hover img{transform:scale(1.04);filter:brightness(.85)}
-.mosaic-cell.main{grid-row:1/3}
-.mosaic-see-all{position:absolute;bottom:14px;right:38px;background:rgba(10,22,40,.88);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);color:#fff;padding:7px 16px;border-radius:7px;font-size:11px;font-weight:700;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:7px}
-.mosaic-see-all:hover{background:rgba(255,255,255,.15)}
-.mosaic-see-all i{font-size:12px;color:var(--gold)}
+.ba-intro{text-align:center;margin-bottom:18px}
+.ba-intro .section-label{justify-content:center}
+.ba-intro h2{font-size:clamp(20px,2.6vw,30px);font-weight:800;letter-spacing:-0.5px;margin-bottom:6px}
+.ba-intro h2 span{color:var(--gold)}
+.ba-intro p{font-size:13px;color:var(--gray);max-width:560px;margin:0 auto}
+.ba-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ba-card{background:var(--navy2);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:border-color .2s,transform .2s}
+.ba-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+.ba-pair{display:grid;grid-template-rows:1fr auto 1fr;gap:0;background:var(--navy)}
+.ba-img{position:relative;overflow:hidden;aspect-ratio:4/3}
+.ba-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.ba-card:hover .ba-img img{transform:scale(1.03)}
+.ba-tag{position:absolute;top:10px;left:10px;backdrop-filter:blur(8px);padding:4px 11px;border-radius:6px;font-size:9px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;z-index:2;display:flex;align-items:center;gap:5px}
+.ba-tag i{font-size:9px}
+.ba-tag.before{background:rgba(220,38,38,.85);color:#fff}
+.ba-tag.after{background:rgba(34,191,172,.92);color:#0a1628}
+.ba-divider{height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);position:relative}
+.ba-divider::after{content:'\f063';font-family:'Font Awesome 6 Free';font-weight:900;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--navy2);color:var(--gold);width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;border:2px solid var(--gold)}
+.ba-caption{padding:14px 16px;background:var(--navy2)}
+.ba-caption-title{font-size:13px;font-weight:700;color:var(--white);margin-bottom:2px}
+.ba-caption-sub{font-size:11px;color:var(--gray)}
+@media(max-width:900px){.ba-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.ba-grid{grid-template-columns:1fr}}
 
 .hero-pills-wrap{max-width:1200px;margin:0 auto;padding:14px 24px 28px;display:flex;flex-wrap:wrap;gap:8px}
 .pill{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:7px 14px;border-radius:7px;font-size:12px;font-weight:500;display:flex;align-items:center;gap:6px}
@@ -210,36 +225,75 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
   </div>
 
   <div class="photo-mosaic">
-    <div class="mosaic-grid">
-      <div class="mosaic-cell main" onclick="openLB(0)">
-        <img src="/401-ne-14th-ave/photos/photo-01.jpg" alt="Front Exterior &mdash; Existing Structure" loading="eager"/>
-        <div class="demo-tag">Teardown</div>
+    <div class="ba-intro">
+      <div class="section-label" style="justify-content:center;display:flex"><i class="fa-solid fa-wrecking-ball"></i> Today &rarr; After Demolition</div>
+      <h2>What You're Really Buying: <span>The Lot</span></h2>
+      <p>The existing 1968 structure goes. The 7,000 SF Victoria Park lot is the asset.</p>
+    </div>
+    <div class="ba-grid">
+      <div class="ba-card" onclick="openLB(0)">
+        <div class="ba-pair">
+          <div class="ba-img">
+            <div class="ba-tag before"><i class="fa-solid fa-circle"></i> Today</div>
+            <img src="/401-ne-14th-ave-land-deal/photos/before-aerial.jpg" alt="Aerial &mdash; existing structure on lot" loading="eager"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-img">
+            <div class="ba-tag after"><i class="fa-solid fa-check"></i> After Demo</div>
+            <img src="/401-ne-14th-ave-land-deal/photos/after-aerial.png" alt="Aerial &mdash; vacant 7,000 SF parcel ready to build" loading="lazy"/>
+          </div>
+        </div>
+        <div class="ba-caption">
+          <div class="ba-caption-title">Aerial &mdash; The Parcel</div>
+          <div class="ba-caption-sub">7,000 SF lot &middot; ready for new construction</div>
+        </div>
       </div>
-      <div class="mosaic-cell" onclick="openLB(17)">
-        <img src="/401-ne-14th-ave/photos/photo-18.jpg" alt="Aerial View &mdash; 7,000 SF Lot" loading="lazy"/>
+
+      <div class="ba-card" onclick="openLB(2)">
+        <div class="ba-pair">
+          <div class="ba-img">
+            <div class="ba-tag before"><i class="fa-solid fa-circle"></i> Today</div>
+            <img src="/401-ne-14th-ave-land-deal/photos/before-side.jpg" alt="Side view &mdash; existing structure" loading="lazy"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-img">
+            <div class="ba-tag after"><i class="fa-solid fa-check"></i> After Demo</div>
+            <img src="/401-ne-14th-ave-land-deal/photos/after-side.png" alt="Side view &mdash; cleared lot" loading="lazy"/>
+          </div>
+        </div>
+        <div class="ba-caption">
+          <div class="ba-caption-title">Side Yard &mdash; Buildable Area</div>
+          <div class="ba-caption-sub">Generous setbacks for a 4,000 SF SFR + pool</div>
+        </div>
       </div>
-      <div class="mosaic-cell" onclick="openLB(20)">
-        <img src="/401-ne-14th-ave/photos/photo-21.jpg" alt="Aerial &mdash; Victoria Park Surroundings" loading="lazy"/>
-      </div>
-      <div class="mosaic-cell" onclick="openLB(18)">
-        <img src="/401-ne-14th-ave/photos/photo-19.jpg" alt="Aerial Lot View" loading="lazy"/>
-      </div>
-      <div class="mosaic-cell" onclick="openLB(22)">
-        <img src="/401-ne-14th-ave/photos/photo-23.jpg" alt="Aerial &mdash; Walking Distance to Las Olas" loading="lazy"/>
+
+      <div class="ba-card" onclick="openLB(4)">
+        <div class="ba-pair">
+          <div class="ba-img">
+            <div class="ba-tag before"><i class="fa-solid fa-circle"></i> Today</div>
+            <img src="/401-ne-14th-ave-land-deal/photos/before-front.jpg" alt="Front facade &mdash; existing structure" loading="lazy"/>
+          </div>
+          <div class="ba-divider"></div>
+          <div class="ba-img">
+            <div class="ba-tag after"><i class="fa-solid fa-check"></i> After Demo</div>
+            <img src="/401-ne-14th-ave-land-deal/photos/after-yard.png" alt="Open yard &mdash; lot view" loading="lazy"/>
+          </div>
+        </div>
+        <div class="ba-caption">
+          <div class="ba-caption-title">Front &amp; Yard &mdash; Open Canvas</div>
+          <div class="ba-caption-sub">Mature landscaping, room to design freely</div>
+        </div>
       </div>
     </div>
-    <button class="mosaic-see-all" onclick="openLB(0)">
-      <i class="fa-regular fa-images"></i> See all 50 photos
-    </button>
   </div>
 
   <div class="hero-pills-wrap">
     <div class="pill"><i class="fa-solid fa-tag"></i> Land Asking <strong>$1,090,000</strong></div>
     <div class="pill"><i class="fa-solid fa-layer-group"></i> <strong>7,000</strong> SF Lot</div>
-    <div class="pill"><i class="fa-solid fa-house-chimney"></i> Build <strong>4,200</strong> SF SFR</div>
-    <div class="pill"><i class="fa-solid fa-hammer"></i> Build at <strong>$300/SF</strong></div>
+    <div class="pill"><i class="fa-solid fa-house-chimney"></i> Build <strong>4,000</strong> SF SFR</div>
+    <div class="pill"><i class="fa-solid fa-hammer"></i> All-In Build <strong>$300/SF</strong></div>
     <div class="pill"><i class="fa-solid fa-arrow-trend-up"></i> ARV <strong>$3.3M+</strong></div>
-    <div class="pill"><i class="fa-solid fa-chart-line"></i> Margin <strong>~$460K&ndash;$740K</strong></div>
+    <div class="pill"><i class="fa-solid fa-chart-line"></i> Net Profit <strong>~$720K&ndash;$1.10M</strong></div>
     <div class="pill"><i class="fa-solid fa-money-bill-wave"></i> Cash or Hard Money</div>
   </div>
 </div>
@@ -247,12 +301,13 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 <!-- LIGHTBOX -->
 <div class="lightbox" id="lightbox">
   <div class="lb-topbar">
-    <div class="lb-counter-txt" id="lb-counter">1 / 50 &middot; 401 NE 14th Ave</div>
+    <div class="lb-counter-txt" id="lb-counter">1 / 6 &middot; 401 NE 14th Ave Land Deal</div>
     <button class="lb-close" onclick="closeLB()"><i class="fa-solid fa-xmark"></i></button>
   </div>
   <div class="lb-main">
     <button class="lb-arr l" onclick="lbPrev()"><i class="fa-solid fa-chevron-left"></i></button>
     <img class="lb-img" id="lb-img" src="" alt=""/>
+    <div id="lb-tag" style="position:absolute;top:18px;left:24px;backdrop-filter:blur(8px);padding:6px 14px;border-radius:7px;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;z-index:10"></div>
     <button class="lb-arr r" onclick="lbNext()"><i class="fa-solid fa-chevron-right"></i></button>
   </div>
   <div class="lb-strip" id="lb-strip"></div>
@@ -276,18 +331,18 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
     </div>
     <div class="term-item">
       <div class="term-label">Build Size</div>
-      <div class="term-val">4,200 SF</div>
+      <div class="term-val">4,000 SF</div>
       <div class="term-sub">Luxury SFR</div>
     </div>
     <div class="term-item">
-      <div class="term-label">Build Cost</div>
+      <div class="term-label">All-In Build</div>
       <div class="term-val">$300 / SF</div>
-      <div class="term-sub">$1.26M total construction</div>
+      <div class="term-sub">Includes soft costs &amp; finishes</div>
     </div>
     <div class="term-item">
       <div class="term-label">Target ARV</div>
       <div class="term-val">$3.3M+</div>
-      <div class="term-sub">$785+ / SF resale</div>
+      <div class="term-sub">$825+ / SF resale</div>
     </div>
     <div class="term-item">
       <div class="term-label">Financing</div>
@@ -301,37 +356,37 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 <section id="proforma" style="padding-top:0">
   <div class="section-label"><i class="fa-solid fa-chart-pie"></i> Build Pro Forma</div>
   <div class="section-title">Land &rarr; Build &rarr; Sell</div>
-  <div class="section-sub">Numbers built around a 4,200 SF luxury SFR at $300/SF construction cost, sold into the Victoria Park new-construction comp set starting at $3.3M. Median Victoria Park resale is currently $576/SF (up 21.5% YoY) &mdash; premium new construction trades meaningfully higher.</div>
+  <div class="section-sub">Numbers built around a 4,000 SF luxury SFR at $300/SF all-in build cost (construction + soft costs), sold into the Victoria Park new-construction comp set starting at $3.3M. Median Victoria Park resale is currently $576/SF (up 21.5% YoY) &mdash; premium new construction trades meaningfully higher.</div>
 
   <div class="metrics-grid">
     <div class="metric gold">
       <div class="metric-label"><i class="fa-solid fa-tag"></i> Land Cost</div>
       <div class="metric-val gold">$1.09M</div>
-      <div class="metric-sub">7,000 SF lot</div>
+      <div class="metric-sub">7,000 SF &middot; $156 / SF lot</div>
     </div>
     <div class="metric blue">
-      <div class="metric-label"><i class="fa-solid fa-hammer"></i> Build Cost</div>
-      <div class="metric-val blue">$1.26M</div>
-      <div class="metric-sub">4,200 SF &times; $300/SF</div>
+      <div class="metric-label"><i class="fa-solid fa-hammer"></i> All-In Build</div>
+      <div class="metric-val blue">$1.20M</div>
+      <div class="metric-sub">4,000 SF &times; $300/SF (incl. soft)</div>
     </div>
     <div class="metric blue">
-      <div class="metric-label"><i class="fa-solid fa-folder-open"></i> Soft Costs</div>
-      <div class="metric-val blue">$200K</div>
-      <div class="metric-sub">Permit, design, carry</div>
+      <div class="metric-label"><i class="fa-solid fa-receipt"></i> Demo + Closing</div>
+      <div class="metric-val blue">$90K</div>
+      <div class="metric-sub">Demolition &amp; carry</div>
     </div>
     <div class="metric teal">
-      <div class="metric-label"><i class="fa-solid fa-arrow-trend-up"></i> ARV (Conservative)</div>
+      <div class="metric-label"><i class="fa-solid fa-arrow-trend-up"></i> ARV (Start)</div>
       <div class="metric-val teal">$3.30M</div>
-      <div class="metric-sub">$786 / SF resale</div>
+      <div class="metric-sub">$825 / SF resale</div>
     </div>
     <div class="metric gold">
       <div class="metric-label"><i class="fa-solid fa-circle-dollar-to-slot"></i> Net Profit</div>
-      <div class="metric-val gold">$462K</div>
-      <div class="metric-sub">After all-in &amp; selling costs</div>
+      <div class="metric-val gold">$722K</div>
+      <div class="metric-sub">After all-in &amp; 6% selling costs</div>
     </div>
     <div class="metric purple">
       <div class="metric-label"><i class="fa-solid fa-percent"></i> Margin on Cost</div>
-      <div class="metric-val purple">17.5%</div>
+      <div class="metric-val purple">30%</div>
       <div class="metric-sub">Conservative case</div>
     </div>
   </div>
@@ -341,24 +396,24 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
       <h3><i class="fa-solid fa-table-list"></i> All-In Cost Breakdown</h3>
       <div class="noi-row"><span class="lbl">Land Acquisition</span><span class="val">$1,090,000</span></div>
       <div class="noi-row"><span class="lbl">Demolition</span><span class="val">$30,000</span></div>
-      <div class="noi-row"><span class="lbl">Construction (4,200 SF &times; $300)</span><span class="val">$1,260,000</span></div>
-      <div class="noi-row"><span class="lbl">Soft Costs (permit, design, carry)</span><span class="val">$200,000</span></div>
+      <div class="noi-row"><span class="lbl">Build All-In (4,000 SF &times; $300)</span><span class="val">$1,200,000</span></div>
+      <div class="noi-row"><span class="lbl" style="font-size:11px;color:#7a8ba0;padding-left:14px">&mdash; Includes design, permits, soft costs</span><span class="val" style="font-size:11px;color:#7a8ba0">included</span></div>
       <div class="noi-row"><span class="lbl">Closing &amp; Holding</span><span class="val">$60,000</span></div>
-      <div class="noi-row total-row"><span class="lbl">Total All-In</span><span class="val">$2,640,000</span></div>
+      <div class="noi-row total-row"><span class="lbl">Total All-In</span><span class="val">$2,380,000</span></div>
     </div>
     <div class="noi-card">
       <h3><i class="fa-solid fa-chart-line"></i> Exit Scenarios</h3>
-      <div class="noi-row"><span class="lbl">Sell @ $786/SF (start)</span><span class="val" style="color:var(--teal2)">$3,300,000</span></div>
-      <div class="noi-row"><span class="lbl">Sell @ $833/SF (market)</span><span class="val" style="color:var(--teal2)">$3,500,000</span></div>
-      <div class="noi-row"><span class="lbl">Sell @ $880/SF (premium)</span><span class="val" style="color:var(--teal2)">$3,700,000</span></div>
+      <div class="noi-row"><span class="lbl">Sell @ $825/SF (start)</span><span class="val" style="color:var(--teal2)">$3,300,000</span></div>
+      <div class="noi-row"><span class="lbl">Sell @ $875/SF (market)</span><span class="val" style="color:var(--teal2)">$3,500,000</span></div>
+      <div class="noi-row"><span class="lbl">Sell @ $925/SF (premium)</span><span class="val" style="color:var(--teal2)">$3,700,000</span></div>
       <div class="noi-row"><span class="lbl">Selling Costs (~6%)</span><span class="val" style="color:#f87171">&minus; $198K&ndash;$222K</span></div>
-      <div class="noi-row"><span class="lbl">Net Profit (low / high)</span><span class="val" style="color:var(--gold)">$462K &ndash; $838K</span></div>
-      <div class="noi-row total-row"><span class="lbl">Margin on Cost (range)</span><span class="val">17.5% &ndash; 32%</span></div>
+      <div class="noi-row"><span class="lbl">Net Profit (low / high)</span><span class="val" style="color:var(--gold)">$722K &ndash; $1.10M</span></div>
+      <div class="noi-row total-row"><span class="lbl">Margin on Cost (range)</span><span class="val">30% &ndash; 46%</span></div>
     </div>
   </div>
   <div class="disclaimer">
     <i class="fa-solid fa-triangle-exclamation"></i>
-    <span><strong style="color:var(--gold)">Pro forma assumptions:</strong> Build size of 4,200 SF assumed to fit Fort Lauderdale RS-8 setbacks and FAR on the 7,000 SF lot &mdash; verify with city/architect. Build cost of $300/SF assumes high-end finishes typical for Victoria Park new construction. ARV starts at $3.3M based on Victoria Park new-construction comps (see comp set below); final pricing depends on design, finish level, and market timing at delivery. All numbers are estimates &mdash; buyer to verify with builder, architect, and broker.</span>
+    <span><strong style="color:var(--gold)">Pro forma assumptions:</strong> Build size of 4,000 SF assumed to fit Fort Lauderdale RS-8 setbacks and FAR on the 7,000 SF lot &mdash; verify with city/architect. The $300/SF figure is the <em>all-in</em> build cost &mdash; sticks &amp; bricks plus soft costs (architect, engineer, permits, design fees, construction-loan carry) &mdash; for high-end finishes typical of Victoria Park new construction. ARV starts at $3.3M based on Victoria Park new-construction comps (see comp set below); final pricing depends on design, finish level, and market timing at delivery. All numbers are estimates &mdash; buyer to verify with builder, architect, and broker.</span>
   </div>
 </section>
 
@@ -414,8 +469,8 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
     <div class="income-row total">
       <div style="font-weight:700;font-size:13px">Target Build &mdash; This Site</div>
       <div><div class="rent-val" style="color:var(--gold)">$3.3M&ndash;$3.7M</div></div>
-      <div style="font-weight:700">4,200 SF</div>
-      <div style="font-weight:700;color:var(--gold)">$786&ndash;$880 / SF</div>
+      <div style="font-weight:700">4,000 SF</div>
+      <div style="font-weight:700;color:var(--gold)">$825&ndash;$925 / SF</div>
     </div>
   </div>
 </section>
@@ -441,7 +496,7 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
     <div class="strategy-card">
       <div class="strategy-phase">Phase 2 &mdash; Months 3&ndash;14</div>
       <div class="strategy-title" style="color:var(--gold)">Build the SFR</div>
-      <div class="strategy-sub">4,200 SF luxury home at $300/SF</div>
+      <div class="strategy-sub">4,000 SF luxury home at $300/SF all-in</div>
       <ul class="strategy-points">
         <li><i class="fa-solid fa-check"></i> Foundation, frame, dry-in</li>
         <li><i class="fa-solid fa-check"></i> High-end finishes (Victoria Park spec)</li>
@@ -456,7 +511,7 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
       <ul class="strategy-points">
         <li><i class="fa-solid fa-check"></i> CO &amp; punch list</li>
         <li><i class="fa-solid fa-check"></i> List at $3.3M&ndash;$3.7M</li>
-        <li><i class="fa-solid fa-check"></i> Net $460K&ndash;$840K profit</li>
+        <li><i class="fa-solid fa-check"></i> Net $720K&ndash;$1.10M profit</li>
         <li><i class="fa-solid fa-check"></i> 1031 or cash distribution</li>
       </ul>
     </div>
@@ -469,7 +524,7 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
   <div class="section-title">7,000 SF in the Heart of Victoria Park</div>
   <div class="section-sub">Lot quality is everything in a build deal. This site checks the boxes that determine whether a Victoria Park SFR can clear $3M+: size, location, dry land, walkability, no waterfront premium needed.</div>
   <div class="features-grid">
-    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text">7,000 SF Lot &mdash; Buildable<span>Sized for a 4,200 SF SFR with pool &amp; outdoor</span></div></div>
+    <div class="feature"><div class="feature-icon"><i class="fa-solid fa-layer-group"></i></div><div class="feature-text">7,000 SF Lot &mdash; Buildable<span>Sized for a 4,000 SF SFR with pool &amp; outdoor</span></div></div>
     <div class="feature"><div class="feature-icon"><i class="fa-solid fa-city"></i></div><div class="feature-text">Victoria Park Address<span>One of Fort Lauderdale's top SFR submarkets</span></div></div>
     <div class="feature"><div class="feature-icon"><i class="fa-solid fa-champagne-glasses"></i></div><div class="feature-text">Walk to Las Olas<span>Walkability premium &mdash; rare for build sites at this price</span></div></div>
     <div class="feature"><div class="feature-icon"><i class="fa-solid fa-umbrella-beach"></i></div><div class="feature-text">~1.5 mi to the Beach<span>Lifestyle driver for $3M+ buyers</span></div></div>
@@ -526,11 +581,14 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
 </footer>
 
 <script>
-const PHOTOS=[];
-for(let n=1;n<=50;n++){
-  const num=String(n).padStart(2,'0');
-  PHOTOS.push({url:`/401-ne-14th-ave/photos/photo-${num}.jpg`});
-}
+const PHOTOS=[
+  {url:'/401-ne-14th-ave-land-deal/photos/before-aerial.jpg',state:'before',caption:'Today — Aerial with structure'},
+  {url:'/401-ne-14th-ave-land-deal/photos/after-aerial.png',state:'after',caption:'After Demo — 7,000 SF parcel'},
+  {url:'/401-ne-14th-ave-land-deal/photos/before-side.jpg',state:'before',caption:'Today — Side view with structure'},
+  {url:'/401-ne-14th-ave-land-deal/photos/after-side.png',state:'after',caption:'After Demo — Cleared side yard'},
+  {url:'/401-ne-14th-ave-land-deal/photos/before-front.jpg',state:'before',caption:'Today — Front facade'},
+  {url:'/401-ne-14th-ave-land-deal/photos/after-yard.png',state:'after',caption:'After Demo — Open yard'},
+];
 (function(){
   const strip=document.getElementById('lb-strip');
   PHOTOS.forEach((p,i)=>{
@@ -545,7 +603,10 @@ function openLB(i){
   lbIdx=i;
   const p=PHOTOS[i];
   document.getElementById('lb-img').src=p.url;
-  document.getElementById('lb-counter').textContent=(i+1)+' / '+PHOTOS.length+' · 401 NE 14th Ave';
+  document.getElementById('lb-counter').textContent=(i+1)+' / '+PHOTOS.length+' · '+p.caption;
+  const tag=document.getElementById('lb-tag');
+  if(p.state==='before'){tag.style.background='rgba(220,38,38,.85)';tag.style.color='#fff';tag.textContent='● Today';}
+  else{tag.style.background='rgba(34,191,172,.92)';tag.style.color='#0a1628';tag.textContent='✓ After Demo';}
   document.querySelectorAll('.lb-thumb').forEach((t,j)=>t.classList.toggle('active',j===i));
   const strip=document.getElementById('lb-strip');
   const thumb=strip.children[i];
