@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Victoria Park Build Site | 401 NE 14th Ave"/>
 <meta name="twitter:description" content="7,000 SF Fort Lauderdale tear-down lot. Build & sell at $3.3M+. Off-market."/>
 <meta name="twitter:image" content="https://off-market-deals.vercel.app/401-ne-14th-ave-land-deal/photos/before-aerial.jpg"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Heebo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -52,6 +52,18 @@ nav.scrolled{background:rgba(10,22,40,.96);backdrop-filter:blur(12px);border-bot
 .lang-btn{background:transparent;border:1px solid rgba(255,255,255,.18);color:#fff;padding:7px 12px;border-radius:6px;font-size:12px;font-weight:700;text-decoration:none;letter-spacing:.3px;transition:all .2s;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif}
 .lang-btn:hover{border-color:var(--gold);color:var(--gold)}
 .lang-btn i{font-size:11px}
+
+/* RTL / Hebrew layout overrides — applied when <html dir="rtl"> */
+html[dir="rtl"] body{font-family:'Heebo','Inter',sans-serif}
+html[dir="rtl"] .nav-brand,html[dir="rtl"] .nav-links a,html[dir="rtl"] .nav-cta,html[dir="rtl"] .lang-btn{letter-spacing:0}
+html[dir="rtl"] .section-label,html[dir="rtl"] .hero-tag,html[dir="rtl"] .metric-label,html[dir="rtl"] .term-label,html[dir="rtl"] .comp-tag,html[dir="rtl"] .strategy-num,html[dir="rtl"] .pill{letter-spacing:0}
+html[dir="rtl"] .mosaic-see-all{right:auto;left:38px}
+html[dir="rtl"] .noi-row .lbl[style*="padding-left"]{padding-left:0!important;padding-right:14px!important}
+html[dir="rtl"] .cta-section p{margin-left:auto;margin-right:auto}
+html[dir="rtl"] .cta-section [style*="text-align:left"]{text-align:right!important}
+html[dir="rtl"] .cta-section [style*="margin-left:auto"][style*="margin-right:auto"]{direction:rtl}
+html[dir="rtl"] footer{direction:rtl}
+html[dir="rtl"] .strategy-list li i{margin-right:0;margin-left:8px}
 
 .hero{position:relative;padding-top:72px;background:var(--navy)}
 .hero-top{max-width:1200px;margin:0 auto;padding:28px 24px 16px}
@@ -310,7 +322,7 @@ footer{border-top:1px solid var(--border);padding:22px 32px;text-align:center;fo
     <a href="#location">Location</a>
   </div>
   <div class="nav-right">
-    <a href="#" class="lang-btn" onclick="toggleLang(event)" title="View in Hebrew"><i class="fa-solid fa-language"></i> עברית</a>
+    <a href="#" id="lang-toggle" class="lang-btn" onclick="toggleLang(event)" title="עברית / English"><i class="fa-solid fa-language"></i> עברית</a>
     <a href="#contact" class="nav-cta">Get Details</a>
   </div>
 </nav>
@@ -939,12 +951,148 @@ lbMain.addEventListener('touchstart',e=>{ltx=e.touches[0].clientX;},{passive:tru
 lbMain.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-ltx;if(Math.abs(dx)>40)dx<0?lbNext():lbPrev();},{passive:true});
 window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});
 
-// Hebrew translation toggle - opens current page through Google Translate (English -> Hebrew, RTL handled by Google)
+// Inline Hebrew translation + full RTL layout
+// HE_TR maps a CSS selector to its Hebrew text. Edit translations here; English is preserved in data-en on first toggle.
+const HE_TR = [
+  // Nav
+  ['.nav-brand', 'עסקת קרקע מחוץ לשוק'],
+  ['.nav-links a[href="#terms"]', 'תנאים'],
+  ['.nav-links a[href="#proforma"]', 'תחזית'],
+  ['.nav-links a[href="#comps"]', 'עסקאות השוואה'],
+  ['.nav-links a[href="#strategy"]', 'אסטרטגיה'],
+  ['.nav-links a[href="#location"]', 'מיקום'],
+  ['.nav-cta', 'פרטים נוספים'],
+  // Hero
+  ['.hero-tag', 'אתר בנייה חדשה — מחוץ לשוק'],
+  ['.hero h1', 'מגרש להריסה ובנייה — פארק ויקטוריה'],
+  ['.hero-loc', '<strong>מגרש 7,000 רגל²</strong> &nbsp;&middot;&nbsp; הריסה ובניית בית פאר — מכירה ב-<strong>3.3M$+</strong>'],
+  // Mosaic button
+  ['.mosaic-see-all', '<i class="fa-regular fa-images"></i> הצג עוד'],
+  // Pills (by text content match handled in code)
+  // Section labels are dynamic (span+icon) - handled per-section below
+];
+
+let isHe = false;
+function applyTranslations(toHe){
+  HE_TR.forEach(([sel, he]) => {
+    document.querySelectorAll(sel).forEach(el => {
+      if(toHe){
+        if(!el.dataset.en) el.dataset.en = el.innerHTML;
+        el.innerHTML = he;
+      } else if(el.dataset.en){
+        el.innerHTML = el.dataset.en;
+      }
+    });
+  });
+  // Pills - find by inner text and swap label only (keep numbers)
+  const pillMap = {
+    'Land Asking': 'מחיר מבוקש',
+    'Lot Size': 'גודל מגרש',
+    'Build Size': 'גודל בנוי',
+    'All-In Build': 'עלות בנייה כוללת',
+    'ARV': 'שווי לאחר בנייה',
+    'Net Profit': 'רווח נקי',
+  };
+  document.querySelectorAll('.pill').forEach(p => {
+    if(toHe){
+      if(!p.dataset.en) p.dataset.en = p.innerHTML;
+      let html = p.innerHTML;
+      Object.entries(pillMap).forEach(([en, he]) => {
+        html = html.replace(en, he);
+      });
+      p.innerHTML = html;
+    } else if(p.dataset.en){
+      p.innerHTML = p.dataset.en;
+    }
+  });
+  // Section titles & subs - swap by exact match
+  const sectionMap = {
+    'Comparable Sales': 'עסקאות השוואה',
+    'Closed New-Construction Comps': 'עסקאות סגורות לבנייה חדשה',
+    'Pro Forma': 'תחזית פיננסית',
+    'Investment Snapshot': 'מבט השקעה',
+    'The Numbers': 'המספרים',
+    'Pro Forma Breakdown': 'פירוט תחזית',
+    'Strategy': 'אסטרטגיה',
+    'Build Plan': 'תוכנית הבנייה',
+    'Three-Phase Plan': 'תוכנית בשלושה שלבים',
+    'Why This Lot Works': 'למה המגרש הזה',
+    'The Lot': 'המגרש',
+    'Location': 'מיקום',
+    'Victoria Park': 'פארק ויקטוריה',
+    'Get Details': 'פרטים נוספים',
+    'Request Full Package': 'בקש חבילה מלאה',
+    'Call Now': 'התקשר עכשיו',
+    'Disposition Manager': 'מנהל מכירות',
+  };
+  document.querySelectorAll('.section-label,.section-title,.section-sub,.cta-btn,.cta-section h2,.cta-section p,footer p').forEach(el => {
+    if(toHe){
+      if(!el.dataset.en) el.dataset.en = el.innerHTML;
+      let html = el.innerHTML;
+      Object.entries(sectionMap).forEach(([en, he]) => {
+        html = html.split(en).join(he);
+      });
+      el.innerHTML = html;
+    } else if(el.dataset.en){
+      el.innerHTML = el.dataset.en;
+    }
+  });
+  // NOI / breakdown labels
+  const noiMap = {
+    'All-In Cost Breakdown': 'פירוט עלות כוללת',
+    'Exit Scenarios': 'תרחישי מכירה',
+    'Land Acquisition': 'רכישת קרקע',
+    'Demolition': 'הריסה',
+    'Build All-In': 'בנייה כוללת',
+    'Includes design, permits, soft costs': 'כולל תכנון, היתרים, עלויות רכות',
+    'included': 'כלול',
+    'Closing &amp; Holding': 'סגירה והחזקה',
+    'Total All-In': 'סה"כ עלות',
+    'Sell @': 'מכירה ב-',
+    '(start)': '(התחלה)',
+    '(market)': '(שוק)',
+    '(premium)': '(פרימיום)',
+    'Selling Costs': 'עלויות מכירה',
+    'Net Profit (low / high)': 'רווח נקי (נמוך / גבוה)',
+    'Margin on Cost (range)': 'שולי רווח על עלות (טווח)',
+    'Margin on Cost': 'שולי רווח על עלות',
+    'After all-in &amp; 6% selling costs': 'לאחר עלות כוללת ועמלת מכירה 6%',
+    'Conservative case': 'תרחיש שמרני',
+  };
+  document.querySelectorAll('.noi-card h3,.noi-row,.metric-label,.metric-sub,.metric-val').forEach(el => {
+    if(toHe){
+      if(!el.dataset.en) el.dataset.en = el.innerHTML;
+      let html = el.innerHTML;
+      Object.entries(noiMap).forEach(([en, he]) => {
+        html = html.split(en).join(he);
+      });
+      el.innerHTML = html;
+    } else if(el.dataset.en){
+      el.innerHTML = el.dataset.en;
+    }
+  });
+}
+
 function toggleLang(e){
   e.preventDefault();
-  const u=encodeURIComponent(location.href.split('#')[0]);
-  window.open('https://translate.google.com/translate?sl=en&tl=iw&u='+u,'_blank','noopener');
+  const html = document.documentElement;
+  isHe = !isHe;
+  applyTranslations(isHe);
+  html.lang = isHe ? 'he' : 'en';
+  html.dir = isHe ? 'rtl' : 'ltr';
+  const btn = document.getElementById('lang-toggle');
+  if(btn) btn.innerHTML = isHe ? '<i class="fa-solid fa-language"></i> English' : '<i class="fa-solid fa-language"></i> עברית';
+  try{ localStorage.setItem('lang', isHe ? 'he' : 'en'); }catch(_){}
 }
+
+// Restore previous preference on load
+(function(){
+  try{
+    if(localStorage.getItem('lang') === 'he'){
+      setTimeout(() => toggleLang({preventDefault:()=>{}}), 0);
+    }
+  }catch(_){}
+})();
 </script>
 </body>
 </html>
